@@ -1,0 +1,12 @@
+/* START multi-column checkbox multi select widget */
+.w-field--checkbox_select_multiple .w-field__input > div[id] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0 1.5rem;
+}
+
+.w-field--checkbox_select_multiple .w-field__input > div[id] > div > label > input {
+  flex-shrink: 0;
+  align-self: flex-start
+}
+/* END multi-column checkbox multi select widget */
