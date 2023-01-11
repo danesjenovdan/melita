@@ -38,8 +38,8 @@ spec:
                 name: melita-secrets
           resources:
             requests:
-              memory: 100Mi
-              cpu: 100m
+              memory: 200Mi
+              cpu: 200m
             limits:
               memory: 1Gi
               cpu: 500m
@@ -57,11 +57,11 @@ spec:
                 name: melita-secrets
           resources:
             requests:
-              memory: 100Mi
-              cpu: 100m
+              memory: 200Mi
+              cpu: 200m
             limits:
-              memory: 100Mi
-              cpu: 100m
+              memory: 200Mi
+              cpu: 200m
       containers:
         - name: melita
           image: melita
@@ -85,11 +85,11 @@ spec:
             - containerPort: 8000
           resources:
             requests:
-              memory: 100Mi
-              cpu: 100m
+              memory: 500Mi
+              cpu: 200m
             limits:
-              memory: 100Mi
-              cpu: 100m
+              memory: 500Mi
+              cpu: 200m
         - name: melita-nginx
           image: nginx:alpine
           volumeMounts:

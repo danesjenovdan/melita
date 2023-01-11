@@ -20,6 +20,8 @@ DATABASES = {
     }
 }
 
+ALLOWED_HOSTS = ["localhost", "melita.lb.djnd.si"]
+
 
 try:
     from .local import *
