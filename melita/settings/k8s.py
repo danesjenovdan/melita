@@ -21,6 +21,7 @@ DATABASES = {
 }
 
 ALLOWED_HOSTS = ["localhost", "melita.lb.djnd.si"]
+CSRF_TRUSTED_ORIGINS = ["https://melita.lb.djnd.si"]
 
 
 try:
