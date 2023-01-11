@@ -18,7 +18,8 @@ spec:
         fsGroup: 1000
       volumes:
         - name: melita-persistent-storage
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: melita-pvc
       initContainers:
         - name: collectstatic
           image: melita
