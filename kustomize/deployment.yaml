@@ -1,0 +1,106 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: melita
+  labels:
+    app: melita
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: melita
+  template:
+    metadata:
+      labels:
+        app: melita
+    spec:
+      securityContext:
+        fsGroup: 1000
+      volumes:
+        - name: melita-persistent-storage
+          emptyDir: {}
+      initContainers:
+        - name: collectstatic
+          image: melita
+          volumeMounts:
+            - name: melita-persistent-storage
+              mountPath: /pvc
+          command:
+            - python
+            - manage.py
+            - collectstatic
+            - --no-input
+          env:
+            - name: DJANGO_SETTINGS_MODULE
+              value: melita.settings.k8s
+          envFrom:
+            - secretRef:
+                name: melita-secrets
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 100m
+            limits:
+              memory: 1Gi
+              cpu: 500m
+        - name: migrate
+          image: melita
+          command:
+            - python
+            - manage.py
+            - migrate
+          env:
+            - name: DJANGO_SETTINGS_MODULE
+              value: melita.settings.k8s
+          envFrom:
+            - secretRef:
+                name: melita-secrets
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 100m
+            limits:
+              memory: 100Mi
+              cpu: 100m
+      containers:
+        - name: melita
+          image: melita
+          volumeMounts:
+            - name: melita-persistent-storage
+              mountPath: /pvc
+          command:
+            - gunicorn
+            - melita.wsgi:application
+            - -b
+            - 0.0.0.0:8000
+            - --log-level
+            - DEBUG
+          env:
+            - name: DJANGO_SETTINGS_MODULE
+              value: melita.settings.k8s
+          envFrom:
+            - secretRef:
+                name: melita-secrets
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 100m
+            limits:
+              memory: 100Mi
+              cpu: 100m
+        - name: melita-nginx
+          image: nginx:alpine
+          volumeMounts:
+            - name: melita-persistent-storage
+              mountPath: /usr/share/nginx/html
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 100m
+            limits:
+              memory: 100Mi
+              cpu: 100m
