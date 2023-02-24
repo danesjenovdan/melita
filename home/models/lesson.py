@@ -88,8 +88,8 @@ class Activity(Orderable):
     activity_type = models.ForeignKey(ActivityType, on_delete=models.PROTECT)
     duration = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
-    aim = models.CharField(max_length=100)
+    description = models.TextField()
+    aim = models.TextField()
     text = RichTextField(
         features=[
             "h3",
@@ -100,7 +100,8 @@ class Activity(Orderable):
             "italic",
             "link",
             "document-link",
-            "images",
+            "image",
+            "embed",
         ]
     )
 
