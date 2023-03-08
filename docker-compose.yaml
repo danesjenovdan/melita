@@ -1,15 +1,16 @@
-version: "3"
+version: '3'
 
 volumes:
   postgres-data:
 
+
 services:
   wagtail:
-    build: .
+    build: ./melita
     working_dir: /app
     command: ./manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/app:delegated,rw
+      - ./melita:/app:delegated,rw
     ports:
       - "8000:8000"
     environment:
