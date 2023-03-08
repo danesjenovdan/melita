@@ -1,0 +1,54 @@
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  & > main {
+    flex: 1 0 0%;
+  }
+}
+
+.back-nav {
+  font-size: 14px;
+}
+
+.page-footer {
+  border-top: 2px solid $black;
+
+  .footer-links {
+    border-bottom: 2px solid $black;
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .footer-col-links {
+      display: flex;
+      gap: 4rem;
+
+      a {
+        font-weight: 600;
+      }
+    }
+
+    .footer-col-lang {
+      display: flex;
+      gap: 2rem;
+      font-weight: 600;
+
+      a {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .footer-logos {
+    .small {
+      font-size: 10px;
+    }
+  }
+}

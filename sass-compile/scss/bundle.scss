@@ -1,3 +1,8 @@
-@import "bs-variables";
+@import "bootstrap-variables";
 @import "bootstrap/scss/bootstrap";
-@import "styles";
+
+// Add custom styles here.
+@import "browser-quirks";
+@import "icons";
+@import "page-layout";
+@import "rich-text";

@@ -1,0 +1,21 @@
+// This file should be included before Bootstrap.
+
+// Set Bootstrap variables here.
+
+$font-family-sans-serif: "Inter", sans-serif;
+$body-color: #252525;
+
+$headings-font-family: "Fredoka One", cursive;
+$headings-color: #112343;
+$headings-font-weight: 400;
+
+$link-color: $body-color;
+$link-decoration: none;
+$link-shade-percentage: 0%;
+$link-hover-decoration: underline;
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+// Change Bootstrap variables or use functions here.
