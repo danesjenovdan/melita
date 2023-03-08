@@ -20,7 +20,8 @@ RUN npm run css
 # ---
 # wagtail image
 # ---
-FROM python:3.8.1-slim-buster
+# Use an official Python runtime based on Debian 11 "bullseye" as a parent image.
+FROM python:3.11.2-slim-bullseye
 
 # Add user that will be used in the container.
 RUN useradd wagtail
@@ -39,14 +40,13 @@ ENV PYTHONUNBUFFERED=1 \
 RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
     build-essential \
     libpq-dev \
-    libmariadbclient-dev \
     libjpeg62-turbo-dev \
     zlib1g-dev \
     libwebp-dev \
  && rm -rf /var/lib/apt/lists/*
 
 # Install the application server.
-RUN pip install "gunicorn==20.0.4"
+RUN pip install "gunicorn==20.1.0"
 
 # Install the project requirements.
 COPY ./melita/requirements.txt /

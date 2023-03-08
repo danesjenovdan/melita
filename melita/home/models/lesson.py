@@ -4,7 +4,7 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.models import ClusterableModel, ParentalKey, ParentalManyToManyField
 from taggit.models import TaggedItemBase
 from wagtail.admin.panels import FieldPanel, InlinePanel
-from wagtail.core.models import Orderable
+from wagtail.models import Orderable
 from wagtail.fields import RichTextField
 
 
