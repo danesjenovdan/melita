@@ -1,6 +1,8 @@
 from django.templatetags.static import static
 from django.utils.html import format_html
+from taggit.models import Tag
 from wagtail import hooks
+from wagtail.admin.panels import FieldPanel
 from wagtail.contrib.modeladmin.options import (
     ModelAdmin,
     ModelAdminGroup,
@@ -71,6 +73,14 @@ class ActivityTypeAdmin(ModelAdmin):
     list_display = ("name",)
 
 
+class TagAdmin(ModelAdmin):
+    model = Tag
+    menu_icon = "tag"
+    list_display = ("name", "slug")
+    search_fields = ("name",)
+    Tag.panels = [FieldPanel("name")]
+
+
 class LessonsGroup(ModelAdminGroup):
     menu_label = "Lessons"
     menu_icon = "folder-open-inverse"
@@ -84,6 +94,7 @@ class LessonsGroup(ModelAdminGroup):
         InstructionMethodAdmin,
         MaterialAdmin,
         ActivityTypeAdmin,
+        TagAdmin,
     )
 
 

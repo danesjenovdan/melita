@@ -1,0 +1,18 @@
+// Add custom styles here.
+// This file is included after Bootstrap.
+
+// remove input number arrows
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: textfield;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
