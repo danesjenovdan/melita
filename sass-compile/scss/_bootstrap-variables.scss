@@ -2,6 +2,19 @@
 
 // Set Bootstrap variables here.
 
+$enable-rounded: false;
+
+$blue: #3072f6;
+// $indigo:  #6610f2;
+// $purple:  #6f42c1;
+// $pink:    #d63384;
+$red: #ec5f58;
+// $orange:  #fd7e14;
+$yellow: #e2fc52;
+// $green:   #198754;
+// $teal:    #20c997;
+// $cyan:    #0dcaf0;
+
 $font-family-sans-serif: "Inter", sans-serif;
 $body-color: #252525;
 
@@ -13,6 +26,18 @@ $link-color: $body-color;
 $link-decoration: none;
 $link-shade-percentage: 0%;
 $link-hover-decoration: underline;
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 2.5,
+  7: $spacer * 3,
+);
 
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";

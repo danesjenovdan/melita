@@ -1,9 +1,8 @@
 .icon {
   display: inline-block;
-  width: 1.75em;
-  height: 1.25em;
+  width: 1em;
+  height: 1em;
   vertical-align: middle;
-  margin-top: -0.25em;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -14,5 +13,20 @@
 }
 
 .icon-arrow {
+  width: 1.75em;
+  height: 1.25em;
+  margin-top: -0.25em;
   background-image: url("/static/icons/noun-arrow-2905805.svg");
+}
+
+.icon-download {
+  width: 1.33em;
+  height: 1.33em;
+  background-image: url("/static/icons/noun-download-4804396.svg");
+}
+
+.icon-lightbulb {
+  width: 2.5em;
+  height: 2.5em;
+  background-image: url("/static/icons/noun-lightbulb-589680-EC5F58.svg");
 }

@@ -38,8 +38,54 @@
     border-bottom: 5px solid $headings-color;
   }
 
-  p {
+  p,
+  ul,
+  ol {
     font-size: 21px;
     margin-bottom: 1.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+hr.thick {
+  border-top-width: 5px;
+  border-top-color: $headings-color;
+  opacity: 1;
+}
+
+.btn.btn-outline-behind-box {
+  $offset: 0.4em;
+
+  &,
+  &:active {
+    $border-width: 2px;
+    position: relative;
+    background: $white;
+    border: $border-width solid $black;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0.6em 1em;
+    margin-bottom: $offset;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: $offset;
+    left: $offset;
+    width: calc(100% + #{2 * $border-width});
+    height: calc(100% + #{2 * $border-width});
+    border: 2px solid $black;
+    z-index: -1;
+  }
+
+  @each $name, $color in $colors {
+    &.btn-behind-#{$name}::before {
+      background-color: $color;
+    }
   }
 }
