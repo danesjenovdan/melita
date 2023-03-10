@@ -1,8 +1,12 @@
 from django.templatetags.static import static
+from django.urls import reverse
 from django.utils.html import format_html
+from django.utils.text import slugify
+from django.utils.translation import gettext as _
 from taggit.models import Tag
 from wagtail import hooks
 from wagtail.admin.panels import FieldPanel
+from wagtail.contrib.modeladmin.helpers import ButtonHelper
 from wagtail.contrib.modeladmin.options import (
     ModelAdmin,
     ModelAdminGroup,
@@ -20,6 +24,31 @@ from .models import (
     Theme,
 )
 
+# --- HELPERS
+
+
+class LessonButtonHelper(ButtonHelper):
+    view_button_classnames = ["button", "button-secondary", "button-small"]
+
+    def view_button(self, obj):
+        return {
+            "url": reverse("lesson", kwargs={"id": obj.id, "slug": slugify(obj.title)}),
+            "label": _("View live"),
+            "classname": self.finalise_classname(self.view_button_classnames),
+            "title": _("View live"),
+        }
+
+    def get_buttons_for_obj(
+        self, obj, exclude=None, classnames_add=None, classnames_exclude=None
+    ):
+        btns = super().get_buttons_for_obj(
+            obj, exclude, classnames_add, classnames_exclude
+        )
+        if "view" not in (exclude or []):
+            btns.append(self.view_button(obj))
+        return btns
+
+
 # --- MODEL ADMIN
 
 
@@ -29,6 +58,7 @@ class LessonAdmin(ModelAdmin):
     list_display = ("title", "program_type", "language")
     list_filter = ("program_type", "language")
     search_fields = ("title", "program_type__name", "language__name")
+    button_helper_class = LessonButtonHelper
 
 
 lesson_admin = LessonAdmin()
@@ -102,6 +132,7 @@ class LessonsGroup(ModelAdminGroup):
 
 
 modeladmin_register(LessonsGroup)
+
 
 # --- HOOKS
 
