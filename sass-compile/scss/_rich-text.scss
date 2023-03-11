@@ -1,0 +1,99 @@
+.rich-text {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    strong,
+    b {
+      font-weight: inherit;
+    }
+  }
+
+  h1 {
+    font-size: 46px;
+    margin-bottom: 5rem;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 21px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  h2,
+  h3,
+  h4 {
+    text-transform: uppercase;
+    margin-top: 4rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.15rem;
+    border-bottom: 5px solid $headings-color;
+  }
+
+  p,
+  ul,
+  ol {
+    font-size: 18px;
+    margin-bottom: 1.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.rich-text--large {
+    p,
+    ul,
+    ol {
+      font-size: 21px;
+    }
+  }
+}
+
+hr.thick {
+  border-top-width: 5px;
+  border-top-color: $headings-color;
+  opacity: 1;
+}
+
+.btn.btn-outline-behind-box {
+  $offset: 0.4em;
+
+  &,
+  &:active {
+    $border-width: 2px;
+    position: relative;
+    background: $white;
+    border: $border-width solid $black;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0.6em 1em;
+    margin-bottom: $offset;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: $offset;
+    left: $offset;
+    width: calc(100% + #{2 * $border-width});
+    height: calc(100% + #{2 * $border-width});
+    border: 2px solid $black;
+    z-index: -1;
+  }
+
+  @each $name, $color in $colors {
+    &.btn-behind-#{$name}::before {
+      background-color: $color;
+    }
+  }
+}
