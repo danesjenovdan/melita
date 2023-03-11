@@ -3,119 +3,212 @@
 
 {% block title %}{{ lesson.title }}{% endblock %}
 
+{% block body_class %}bg-alt{% endblock %}
+
 {% block back_content %}{% translate "Back to the list" %}{% endblock %}
 
 {% block content %}
-<div class="container lesson">
-    <div class="row justify-content-center">
-        <div class="col-8 lesson__content">
-            <h1>{{ lesson.title }}</h1>
-            {% if lesson.key_terms %}
-            <dl class="lesson__key-terms">
-                {% for key_term in lesson.key_terms.all %}
-                <div class="lesson__key-term my-3">
-                    <div class="key-term-icon">
-                        <i class="icon icon-lightbulb"></i>
-                    </div>
-                    <div class="key-term-text">
-                        <dt>{{ key_term.term }}</dt>
-                        <dd>
-                            {{ key_term.definition }}
-                            {% if key_term.source_description %}
-                                {% if key_term.source_url %}
-                                    <sup><a href="{{key_term.source_url}}" target="_blank" class="text-muted">{{ key_term.source_description }}</a></sup>
-                                {% else %}
-                                    <sup><span class="text-muted">{{ key_term.source_description }}</span></sup>
+<div class="lesson">
+    <div class="container">
+        <div class="row">
+            <div class="col-8 lesson__content">
+                <div class="rich-text">
+                    <h1>{{ lesson.title }}</h1>
+                </div>
+
+                {% if lesson.key_terms %}
+                <dl class="lesson__key-terms">
+                    {% for key_term in lesson.key_terms.all %}
+                    <div class="lesson__key-term my-3">
+                        <div class="key-term-icon">
+                            <i class="icon icon-lightbulb"></i>
+                        </div>
+                        <div class="key-term-text">
+                            <dt>{{ key_term.term }}</dt>
+                            <dd>
+                                {{ key_term.definition }}
+                                {% if key_term.source_description %}
+                                    {% if key_term.source_url %}
+                                        <sup><a href="{{ key_term.source_url }}" target="_blank" class="text-muted">{{ key_term.source_description }}</a></sup>
+                                    {% else %}
+                                        <sup><span class="text-muted">{{ key_term.source_description }}</span></sup>
+                                    {% endif %}
                                 {% endif %}
-                            {% endif %}
-                        </dd>
+                            </dd>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </dl>
+                {% endif %}
+
+                <div class="lesson__description my-7">
+                    <div class="rich-text rich-text--large">{{ lesson.description|richtext }}</div>
+                </div>
+
+                {% if lesson.goals %}
+                <div class="lesson__section my-7">
+                    <h2 class="lesson__section-title">{% translate "Lesson goals" %}</h2>
+                    <div class="lesson__section-content">
+                        <div class="rich-text">{{ lesson.goals|richtext }}</div>
                     </div>
                 </div>
-                {% endfor %}
-            </dl>
-            {% endif %}
-            <div class="lesson__description my-7">
-                {{ lesson.description|richtext }}
+                {% endif %}
+
+                {% if lesson.activities.all %}
+                <div class="lesson__section my-7">
+                    <h2 class="lesson__section-title">{% translate "Activities" %}</h2>
+                    {% for activity in lesson.activities.all %}
+                    <div class="lesson__section-content lesson__section-content--has-stripe">
+                        <div class="lesson__section-stripe" style="background: {{ activity.activity_type.color }};"></div>
+                        <div class="activity rich-text">
+                            <p class="activity__title"><a href="#expanded_activity_{{ activity.id }}">{{ activity.activity_type.name }} ({{ activity.duration }})</a></p>
+                            <p class="activity__description">{{ activity.description }}</p>
+                            <p class="activity__aim"><span>{% translate "Aim:" %}</span> {{ activity.aim }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if lesson.keywords.all %}
+                <div class="lesson__section my-7">
+                    <h2 class="lesson__section-title">{% translate "Keywords" %}</h2>
+                    <div class="lesson__section-content">
+                        <div class="badges">
+                            {% for keyword in lesson.keywords.all %}
+                                <span class="badge rounded-pill">{{ keyword }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if lesson.pedagogical_tips_and_recommendations %}
+                <div class="lesson__section my-7">
+                    <h2 class="lesson__section-title">{% translate "Pedagogical tips and recommendations" %}</h2>
+                    <div class="lesson__section-content">
+                        <div class="rich-text">{{ lesson.pedagogical_tips_and_recommendations|richtext }}</div>
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            {% if lesson.goals %}
-            <div class="lesson__section my-7">
-                <h2 class="lesson__section-title">{% translate "Lesson goals" %}</h2>
-                <div class="lesson__section-content">
-                    {{ lesson.goals|richtext }}
+            <div class="col-4 lesson__sidebar">
+                {% if lesson.lesson_file %}
+                <div class="mt-0 my-4">
+                    <a href="{{ lesson.lesson_file.url }}" download="{{ lesson.lesson_file.filename }}" class="btn btn-outline-behind-box btn-behind-yellow">{% translate "Download lesson" %}<i class="icon icon-download ms-4"></i></a>
+                </div>
+                {% endif %}
+                {% if lesson.slides_file %}
+                <div class="my-4">
+                    <a href="{{ lesson.slides_file.url }}" download="{{ lesson.slides_file.filename }}" class="btn btn-outline-behind-box btn-behind-red">{% translate "Download slides" %}<i class="icon icon-download ms-4"></i></a>
+                </div>
+                {% endif %}
+                {% if lesson.worksheets_file %}
+                <div class="my-4">
+                    <a href="{{ lesson.worksheets_file.url }}" download="{{ lesson.worksheets_file.filename }}" class="btn btn-outline-behind-box btn-behind-blue">{% translate "Download worksheet" %}<i class="icon icon-download ms-4"></i></a>
+                </div>
+                {% endif %}
+                <hr class="thick my-6">
+                <dl>
+                    <div class="lesson__meta-data">
+                        <div class="lesson__meta-data-box">
+                            <dt>{% translate "Theme" %}</dt>
+                            <dd>{{ lesson.theme }}</dd>
+                        </div>
+                    </div>
+                    <div class="lesson__meta-data">
+                        <div class="lesson__meta-data-box">
+                            <dt>{% translate "Lesson duration" %}</dt>
+                            <dd>{{ lesson.duration }}</dd>
+                        </div>
+                    </div>
+                    <div class="lesson__meta-data">
+                        <div class="lesson__meta-data-box">
+                            <dt>{% translate "Main method of instruction" %}</dt>
+                            <dd>{{ lesson.instruction_method }}</dd>
+                        </div>
+                    </div>
+                    <div class="lesson__meta-data">
+                        <div class="lesson__meta-data-box">
+                            <dt>{% translate "Materials" %}</dt>
+                            <dd>{{ lesson.materials.all|join:", " }}</dd>
+                        </div>
+                    </div>
+                    <div class="lesson__meta-data">
+                        <div class="lesson__meta-data-box">
+                            <dt>{% translate "Prep time for teacher" %}</dt>
+                            <dd>{{ lesson.prep_time }}</dd>
+                        </div>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <section class="bg-body my-7">
+        <div class="container">
+            <div class="row">
+                <div class="col-9 lesson__content">
+                    {% if lesson.activities.all %}
+                    <div class="lesson__activities-section py-7">
+                        {% for activity in lesson.activities.all %}
+                        <div class="lesson__activity-section my-7 py-7">
+                            <a id="expanded_activity_{{ activity.id }}" class="lesson__activity-section-stripe" style="background: {{ activity.activity_type.color }};"></a>
+                            <div class="activity rich-text rich-text--large">
+                                <p class="activity__title">{{ activity.activity_type.name }} ({{ activity.duration }})</p>
+                                <div class="activity__text">{{ activity.text|richtext }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
-            {% endif %}
-            <div class="my-7">TODO ACTIVITIES</div>
-            {% if lesson.keywords.all %}
-            <div class="lesson__section my-7">
-                <h2 class="lesson__section-title">{% translate "Keywords" %}</h2>
-                <div class="lesson__section-content">
-                    <div class="badges">
-                        {% for keyword in lesson.keywords.all %}
-                            <span class="badge rounded-pill">{{ keyword }}</span>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-8 lesson__content">
+                {% if lesson.further_reading.all %}
+                <div class="lesson__section my-7">
+                    <h2 class="lesson__section-title">{% translate "Further reading" %}</h2>
+                    <div class="lesson__section-content">
+                        <div class="sources">
+                            {% for further_reading in lesson.further_reading.all %}
+                                <div class="source">
+                                    <a href="{{ further_reading.source_url }}" target="_blank"><i class="icon icon-open-new-page me-2"></i>{{ further_reading.source_description }}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if lesson.sources.all %}
+                <div class="lesson__section my-7">
+                    <h2 class="lesson__section-title">{% translate "Sources" %}</h2>
+                    <div class="lesson__section-content">
+                        <div class="sources">
+                            {% for source in lesson.sources.all %}
+                                <div class="source">
+                                    <a href="{{ source.source_url }}" target="_blank"><i class="icon icon-open-new-page me-2"></i>{{ source.source_description }}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if lesson.related_lessons.all %}
+                <div class="lesson__section my-7">
+                    <h2 class="lesson__section-title">{% translate "Related lessons" %}</h2>
+                    <div class="lesson__section-content">
+                        {% for related_lesson in lesson.related_lessons.all %}
+                            <div><a href="{% url "lesson" related_lesson.id related_lesson.title|slugify %}">{{ related_lesson }}</a></div>
                         {% endfor %}
                     </div>
                 </div>
+                {% endif %}
             </div>
-            {% endif %}
-            {% if lesson.pedagogical_tips_and_recommendations %}
-            <div class="lesson__section my-7">
-                <h2 class="lesson__section-title">{% translate "Pedagogical tips and recommendations" %}</h2>
-                <div class="lesson__section-content">
-                    {{ lesson.pedagogical_tips_and_recommendations|richtext }}
-                </div>
-            </div>
-            {% endif %}
-        </div>
-        <div class="col-4 lesson__sidebar">
-            {% if lesson.lesson_file %}
-            <div class="mt-0 my-4">
-                <a href="{{ lesson.lesson_file.url }}" download="{{ lesson.lesson_file.filename }}" class="btn btn-outline-behind-box btn-behind-yellow">{% translate "Download lesson" %}<i class="icon icon-download ms-4"></i></a>
-            </div>
-            {% endif %}
-            {% if lesson.slides_file %}
-            <div class="my-4">
-                <a href="{{ lesson.slides_file.url }}" download="{{ lesson.slides_file.filename }}" class="btn btn-outline-behind-box btn-behind-red">{% translate "Download slides" %}<i class="icon icon-download ms-4"></i></a>
-            </div>
-            {% endif %}
-            {% if lesson.worksheets_file %}
-            <div class="my-4">
-                <a href="{{ lesson.worksheets_file.url }}" download="{{ lesson.worksheets_file.filename }}" class="btn btn-outline-behind-box btn-behind-blue">{% translate "Download worksheet" %}<i class="icon icon-download ms-4"></i></a>
-            </div>
-            {% endif %}
-            <hr class="thick my-6">
-            <dl>
-                <div class="lesson__meta-data">
-                    <div class="lesson__meta-data-box">
-                        <dt>{% translate "Theme" %}</dt>
-                        <dd>{{ lesson.theme }}</dd>
-                    </div>
-                </div>
-                <div class="lesson__meta-data">
-                    <div class="lesson__meta-data-box">
-                        <dt>{% translate "Lesson duration" %}</dt>
-                        <dd>{{ lesson.duration }}</dd>
-                    </div>
-                </div>
-                <div class="lesson__meta-data">
-                    <div class="lesson__meta-data-box">
-                        <dt>{% translate "Main method of instruction" %}</dt>
-                        <dd>{{ lesson.instruction_method }}</dd>
-                    </div>
-                </div>
-                <div class="lesson__meta-data">
-                    <div class="lesson__meta-data-box">
-                        <dt>{% translate "Materials" %}</dt>
-                        <dd>{{ lesson.materials.all|join:", " }}</dd>
-                    </div>
-                </div>
-                <div class="lesson__meta-data">
-                    <div class="lesson__meta-data-box">
-                        <dt>{% translate "Prep time for teacher" %}</dt>
-                        <dd>{{ lesson.prep_time }}</dd>
-                    </div>
-                </div>
-            </dl>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@
 
         & > .key-term-icon {
           flex: 0 0 0%;
-          margin-top: -0.25rem;
+          margin-top: -0.4rem;
         }
 
         & > .key-term-text {
@@ -28,7 +28,7 @@
       .lesson__section-title {
         display: inline-block;
         margin: 0;
-        padding: 0.9rem 1rem 0.75rem 1rem;
+        padding: 1.1em 1.5em 0.9em 1.5em;
         font-family: $font-family-sans-serif;
         font-size: 18px;
         font-weight: 700;
@@ -38,8 +38,39 @@
 
       .lesson__section-content {
         margin-top: -1px;
-        padding: 1rem;
+        padding: 1.1em 1.5em;
+        font-size: 18px;
         border: 1px solid $black;
+        position: relative;
+
+        &.lesson__section-content--has-stripe {
+          padding-left: calc(1.5em + 1rem);
+
+          .lesson__section-stripe {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 1rem;
+            border-right: 1px solid $black;
+          }
+        }
+
+        .activity {
+          .activity__title {
+            font-size: 16px;
+            font-weight: 700;
+            font-style: italic;
+            text-transform: uppercase;
+          }
+
+          .activity__aim {
+            span {
+              font-weight: 600;
+              font-style: italic;
+            }
+          }
+        }
 
         .badges {
           display: flex;
@@ -53,6 +84,75 @@
             color: $body-color;
             border: 2px solid $red;
             background-color: rgba($red, 0.15);
+            text-transform: capitalize;
+          }
+        }
+
+        .sources {
+          .source {
+            margin-bottom: 1rem;
+
+            &:last-child {
+              margin-bottom: 0.25rem;
+            }
+
+            a {
+              font-size: 16px;
+              font-weight: 600;
+              color: $blue;
+              text-decoration: none;
+              border-bottom: 1px solid $blue;
+
+              &:hover {
+                text-decoration: none;
+                border-bottom-color: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .lesson__activities-section {
+      .lesson__activity-section {
+        position: relative;
+        padding-left: 3rem;
+
+        .lesson__activity-section-stripe {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 1rem;
+          border: 1px solid $black;
+        }
+
+        .activity {
+          .activity__title {
+            margin-bottom: 3rem;
+            font-size: 16px;
+            font-weight: 700;
+            font-style: italic;
+            text-transform: uppercase;
+          }
+
+          &.rich-text {
+            h3,
+            h4 {
+              margin-top: 3rem;
+              margin-bottom: 0.75rem;
+              border-bottom: 0;
+              font-family: $font-family-sans-serif;
+              font-weight: 700;
+            }
+
+            h3 {
+              font-size: 28px;
+            }
+
+            h4 {
+              font-size: 24px;
+            }
           }
         }
       }

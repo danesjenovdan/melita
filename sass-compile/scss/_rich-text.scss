@@ -1,4 +1,4 @@
-.page-content {
+.rich-text {
   h1,
   h2,
   h3,
@@ -41,11 +41,19 @@
   p,
   ul,
   ol {
-    font-size: 21px;
+    font-size: 18px;
     margin-bottom: 1.5em;
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+
+  &.rich-text--large {
+    p,
+    ul,
+    ol {
+      font-size: 21px;
     }
   }
 }
