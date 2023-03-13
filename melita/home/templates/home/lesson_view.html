@@ -61,7 +61,7 @@
                     <div class="lesson__section-content lesson__section-content--has-stripe">
                         <div class="lesson__section-stripe" style="background: {{ activity.activity_type.color }};"></div>
                         <div class="activity rich-text">
-                            <p class="activity__title"><a href="#expanded_activity_{{ activity.id }}">{{ activity.activity_type.name }} ({{ activity.duration }})</a></p>
+                            <p class="activity__title"><a href="#expanded_activity_{{ activity.id }}">{{ activity.activity_type.name }} ({{ activity.duration }}) - {{ activity.type }}</a></p>
                             <p class="activity__description">{{ activity.description }}</p>
                             <p class="activity__aim"><span>{% translate "Aim:" %}</span> {{ activity.aim }}</p>
                         </div>
@@ -137,7 +137,15 @@
                     <div class="lesson__meta-data">
                         <div class="lesson__meta-data-box">
                             <dt>{% translate "Prep time for teacher" %}</dt>
-                            <dd>{{ lesson.prep_time }}</dd>
+                            <dd>
+                                {% for i in ''|center:5 %}
+                                    {% if forloop.counter <= lesson.prep_time  %}
+                                        <i class="icon icon-clock-full"></i>
+                                    {% else %}
+                                        <i class="icon icon-clock"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </dd>
                         </div>
                     </div>
                 </dl>
