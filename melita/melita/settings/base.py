@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "wagtail",
     "modelcluster",
     "taggit",
+    "wagtailautocomplete",
+    "jsonify",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

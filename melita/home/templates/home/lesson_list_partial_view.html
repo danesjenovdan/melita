@@ -1,0 +1,13 @@
+{% load static i18n wagtailcore_tags jsonify %}
+
+<ol class="lesson-list">
+  {% for lesson in lessons %}
+  <li>
+    <a class="lesson-link" href="{% url "lesson" lesson.id lesson.title|slugify %}">
+      <h3>{{ lesson.title }}</h3>
+      <div class="description">{{ lesson.description|richtext }}</div>
+      <i class="icon icon-arrow"></i>
+    </a>
+  </li>
+  {% endfor %}
+</ol>

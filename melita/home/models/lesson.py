@@ -4,8 +4,9 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.models import ClusterableModel, ParentalKey, ParentalManyToManyField
 from taggit.models import TaggedItemBase
 from wagtail.admin.panels import FieldPanel, InlinePanel
-from wagtail.models import Orderable
 from wagtail.fields import RichTextField
+from wagtail.models import Orderable
+from wagtailautocomplete.edit_handlers import AutocompletePanel
 
 
 class ProgramType(models.Model):
@@ -60,8 +61,8 @@ class PrepTime(models.IntegerChoices):
     ONE = 1, "*"
     TWO = 2, "**"
     THREE = 3, "***"
-    FOUR = 4, "****"
-    FIVE = 5, "*****"
+    # FOUR = 4, "****"
+    # FIVE = 5, "*****"
 
 
 class Material(models.Model):
@@ -194,7 +195,7 @@ class Lesson(ClusterableModel):
             "further_reading", heading="Further reading", label="Further reading"
         ),
         InlinePanel("sources", heading="Sources", label="Source"),
-        FieldPanel("related_lessons"),
+        AutocompletePanel("related_lessons"),
     ]
 
     def __str__(self):
