@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-10 23:55+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+#: home/templates/home/lesson_view.html:8
+msgid "Back to the list"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:50
+msgid "Lesson goals"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:59
+msgid "Activities"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:66
+msgid "Aim:"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:75
+msgid "Keywords"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:88
+msgid "Pedagogical tips and recommendations"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:98
+msgid "Download lesson"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:103
+msgid "Download slides"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:108
+msgid "Download worksheet"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:115
+msgid "Theme"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:121
+msgid "Lesson duration"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:127
+msgid "Main method of instruction"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:133
+msgid "Materials"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:139
+msgid "Prep time for teacher"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:181
+msgid "Further reading"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:196
+msgid "Sources"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:211
+msgid "Related lessons"
+msgstr ""
+
+#: home/wagtail_hooks.py:36 home/wagtail_hooks.py:38
+msgid "View live"
+msgstr ""
+
+#: melita/settings/base.py:127
+msgid "English"
+msgstr ""
+
+#: melita/settings/base.py:128
+msgid "Dutch"
+msgstr ""
+
+#: melita/settings/base.py:129
+msgid "Estonian"
+msgstr ""
+
+#: melita/settings/base.py:130
+msgid "Polish"
+msgstr ""
+
+#: melita/settings/base.py:131
+msgid "Slovenian"
+msgstr ""
+
+#: melita/templates/base.html:49
+msgid "Back to the home page"
+msgstr ""
+
+#: melita/templates/base.html:62
+msgid "About"
+msgstr ""
+
+#: melita/templates/base.html:63
+msgid "How to use"
+msgstr ""
+
+#: melita/templates/base.html:70
+msgid "Language selection"
+msgstr ""
