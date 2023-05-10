@@ -1,5 +1,8 @@
+from django.conf import settings
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.templatetags.static import static
+from django.utils import translation
 from django.views.generic.base import TemplateView
 
 from .models import InstructionMethod, Lesson, LessonTag, Material, PrepTime, Theme
@@ -98,3 +101,16 @@ class LessonListPartialView(TemplateView):
 
 class LessonListView(LessonListPartialView):
     template_name = "home/lesson_list_view.html"
+
+    def get(self, request, *args, **kwargs):
+        new_language = None
+        if lang := self.request.GET.get('lang'):
+            new_language = lang
+            translation.activate(new_language)
+
+        response = super().get(request, *args, **kwargs)
+
+        if new_language:
+            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, new_language)
+
+        return response
