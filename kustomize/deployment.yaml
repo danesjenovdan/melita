@@ -39,13 +39,16 @@ spec:
                 name: melita-secrets
           resources:
             requests:
-              memory: 200Mi
+              memory: 400Mi
               cpu: 100m
             limits:
               memory: 400Mi
-              cpu: 200m
+              cpu: 100m
         - name: migrate
           image: melita
+          volumeMounts:
+            - name: melita-persistent-storage
+              mountPath: /pvc
           command:
             - python
             - manage.py
@@ -58,10 +61,10 @@ spec:
                 name: melita-secrets
           resources:
             requests:
-              memory: 100Mi
+              memory: 400Mi
               cpu: 100m
             limits:
-              memory: 100Mi
+              memory: 400Mi
               cpu: 100m
       containers:
         - name: melita
