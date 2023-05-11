@@ -5,7 +5,6 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
-  - pvc.yaml
 images:
   - name: melita
     newName: rg.fr-par.scw.cloud/djnd/melita
