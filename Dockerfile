@@ -68,4 +68,7 @@ COPY --chown=wagtail:wagtail --from=sass-compile /app/static/css ./melita/static
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
 
+# Compile locale files.
+RUN python manage.py compilemessages
+
 CMD gunicorn melita.wsgi:application -b 0.0.0.0:8000 --log-level DEBUG
