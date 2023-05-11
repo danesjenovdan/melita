@@ -22,15 +22,15 @@ msgstr ""
 
 #: home/templates/home/lesson_view.html:8
 msgid "Back to the list"
-msgstr ""
+msgstr "Powrót do listy"
 
 #: home/templates/home/lesson_view.html:50
 msgid "Lesson goals"
-msgstr ""
+msgstr "Cele lekcji"
 
 #: home/templates/home/lesson_view.html:59
 msgid "Activities"
-msgstr ""
+msgstr "Działania"
 
 #: home/templates/home/lesson_view.html:66
 msgid "Aim:"
@@ -38,92 +38,92 @@ msgstr ""
 
 #: home/templates/home/lesson_view.html:75
 msgid "Keywords"
-msgstr ""
+msgstr "Słowa klucze"
 
 #: home/templates/home/lesson_view.html:88
 msgid "Pedagogical tips and recommendations"
-msgstr ""
+msgstr "Pedagogiczne wskazówki i rekomendacje"
 
 #: home/templates/home/lesson_view.html:98
 msgid "Download lesson"
-msgstr ""
+msgstr "Pobierz lekcję"
 
 #: home/templates/home/lesson_view.html:103
 msgid "Download slides"
-msgstr ""
+msgstr "Pobierz slajdy"
 
 #: home/templates/home/lesson_view.html:108
 msgid "Download worksheet"
-msgstr ""
+msgstr "Pobierz kartę pracy"
 
 #: home/templates/home/lesson_view.html:115
 msgid "Theme"
-msgstr ""
+msgstr "Temat"
 
 #: home/templates/home/lesson_view.html:121
 msgid "Lesson duration"
-msgstr ""
+msgstr "Czas trwania lekcji"
 
 #: home/templates/home/lesson_view.html:127
 msgid "Main method of instruction"
-msgstr ""
+msgstr "Główna metoda nauczania"
 
 #: home/templates/home/lesson_view.html:133
 msgid "Materials"
-msgstr ""
+msgstr "Materiały"
 
 #: home/templates/home/lesson_view.html:139
 msgid "Prep time for teacher"
-msgstr ""
+msgstr "Przygotowanie dla nauczycieli"
 
 #: home/templates/home/lesson_view.html:181
 msgid "Further reading"
-msgstr ""
+msgstr "Literatura uzupełniająca"
 
 #: home/templates/home/lesson_view.html:196
 msgid "Sources"
-msgstr ""
+msgstr "Źródła"
 
 #: home/templates/home/lesson_view.html:211
 msgid "Related lessons"
-msgstr ""
+msgstr "Powiązane lekcje"
 
 #: home/wagtail_hooks.py:36 home/wagtail_hooks.py:38
 msgid "View live"
 msgstr ""
 
-#: melita/settings/base.py:132
+#: melita/settings/base.py:132 melita/settings/base.py:127
 msgid "English"
 msgstr ""
 
-#: melita/settings/base.py:133
+#: melita/settings/base.py:133 melita/settings/base.py:128
 msgid "Dutch"
 msgstr ""
 
-#: melita/settings/base.py:134
+#: melita/settings/base.py:134 melita/settings/base.py:129
 msgid "Estonian"
 msgstr ""
 
-#: melita/settings/base.py:135
+#: melita/settings/base.py:135 melita/settings/base.py:130
 msgid "Polish"
 msgstr ""
 
-#: melita/settings/base.py:136
+#: melita/settings/base.py:136 melita/settings/base.py:131
 msgid "Slovenian"
 msgstr ""
 
 #: melita/templates/base.html:49
 msgid "Back to the home page"
-msgstr ""
+msgstr "Powrót do strony głównej"
 
 #: melita/templates/base.html:62
 msgid "About"
-msgstr ""
+msgstr "O platformie"
 
 #: melita/templates/base.html:63
 msgid "How to use"
-msgstr ""
+msgstr "Jak korzystać"
 
 #: melita/templates/base.html:70
 msgid "Language selection"
-msgstr ""
+msgstr "Wybór języka"
