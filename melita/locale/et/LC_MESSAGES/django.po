@@ -20,15 +20,15 @@ msgstr ""
 
 #: home/templates/home/lesson_view.html:8
 msgid "Back to the list"
-msgstr ""
+msgstr "Tagasi nimekirja juurde"
 
 #: home/templates/home/lesson_view.html:50
 msgid "Lesson goals"
-msgstr ""
+msgstr "Tunni eesmärgid"
 
 #: home/templates/home/lesson_view.html:59
 msgid "Activities"
-msgstr ""
+msgstr "Tegevused"
 
 #: home/templates/home/lesson_view.html:66
 msgid "Aim:"
@@ -36,92 +36,92 @@ msgstr ""
 
 #: home/templates/home/lesson_view.html:75
 msgid "Keywords"
-msgstr ""
+msgstr "Võtmesõnad"
 
 #: home/templates/home/lesson_view.html:88
 msgid "Pedagogical tips and recommendations"
-msgstr ""
+msgstr "Nõuanded ja soovitused õpetajale"
 
 #: home/templates/home/lesson_view.html:98
 msgid "Download lesson"
-msgstr ""
+msgstr "Laadi tund/tunnikava alla"
 
 #: home/templates/home/lesson_view.html:103
 msgid "Download slides"
-msgstr ""
+msgstr "Laadi slaidid alla"
 
 #: home/templates/home/lesson_view.html:108
 msgid "Download worksheet"
-msgstr ""
+msgstr "Laadi tööleht alla"
 
 #: home/templates/home/lesson_view.html:115
 msgid "Theme"
-msgstr ""
+msgstr "Teema"
 
 #: home/templates/home/lesson_view.html:121
 msgid "Lesson duration"
-msgstr ""
+msgstr "Tunni kestus"
 
 #: home/templates/home/lesson_view.html:127
 msgid "Main method of instruction"
-msgstr ""
+msgstr "Peamine õpimeetod"
 
 #: home/templates/home/lesson_view.html:133
 msgid "Materials"
-msgstr ""
+msgstr "Materjalid"
 
 #: home/templates/home/lesson_view.html:139
 msgid "Prep time for teacher"
-msgstr ""
+msgstr "Ettevalmistusaeg (õpetajale)"
 
 #: home/templates/home/lesson_view.html:181
 msgid "Further reading"
-msgstr ""
+msgstr "Lisalugemist"
 
 #: home/templates/home/lesson_view.html:196
 msgid "Sources"
-msgstr ""
+msgstr "Allikad"
 
 #: home/templates/home/lesson_view.html:211
 msgid "Related lessons"
-msgstr ""
+msgstr "Seotud tunnid"
 
 #: home/wagtail_hooks.py:36 home/wagtail_hooks.py:38
 msgid "View live"
 msgstr ""
 
-#: melita/settings/base.py:132
+#: melita/settings/base.py:132 melita/settings/base.py:127
 msgid "English"
 msgstr ""
 
-#: melita/settings/base.py:133
+#: melita/settings/base.py:133 melita/settings/base.py:128
 msgid "Dutch"
 msgstr ""
 
-#: melita/settings/base.py:134
+#: melita/settings/base.py:134 melita/settings/base.py:129
 msgid "Estonian"
 msgstr ""
 
-#: melita/settings/base.py:135
+#: melita/settings/base.py:135 melita/settings/base.py:130
 msgid "Polish"
 msgstr ""
 
-#: melita/settings/base.py:136
+#: melita/settings/base.py:136 melita/settings/base.py:131
 msgid "Slovenian"
 msgstr ""
 
 #: melita/templates/base.html:49
 msgid "Back to the home page"
-msgstr ""
+msgstr "Tagasi kodulehele"
 
 #: melita/templates/base.html:62
 msgid "About"
-msgstr ""
+msgstr "Platvormist"
 
 #: melita/templates/base.html:63
 msgid "How to use"
-msgstr ""
+msgstr "Kuidas kasutada"
 
 #: melita/templates/base.html:70
 msgid "Language selection"
-msgstr ""
+msgstr "Keel"
