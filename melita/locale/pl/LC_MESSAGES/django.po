@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 23:55+0200\n"
+"POT-Creation-Date: 2023-05-11 04:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
 #: home/templates/home/lesson_view.html:8
 msgid "Back to the list"
 msgstr ""
@@ -91,23 +92,23 @@ msgstr ""
 msgid "View live"
 msgstr ""
 
-#: melita/settings/base.py:127
+#: melita/settings/base.py:132
 msgid "English"
 msgstr ""
 
-#: melita/settings/base.py:128
+#: melita/settings/base.py:133
 msgid "Dutch"
 msgstr ""
 
-#: melita/settings/base.py:129
+#: melita/settings/base.py:134
 msgid "Estonian"
 msgstr ""
 
-#: melita/settings/base.py:130
+#: melita/settings/base.py:135
 msgid "Polish"
 msgstr ""
 
-#: melita/settings/base.py:131
+#: melita/settings/base.py:136
 msgid "Slovenian"
 msgstr ""
 

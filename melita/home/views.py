@@ -1,11 +1,10 @@
 from django.conf import settings
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.templatetags.static import static
 from django.utils import translation
 from django.views.generic.base import TemplateView
 
-from .models import InstructionMethod, Lesson, LessonTag, Material, PrepTime, Theme
+from .models import InstructionMethod, Lesson, Material, PrepTime, Theme
 
 
 class LessonView(TemplateView):
