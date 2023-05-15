@@ -2,9 +2,12 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.templatetags.static import static
 from django.utils import translation
+from django.utils.translation import gettext_lazy as _
 from django.views.generic.base import TemplateView
 
 from .models import InstructionMethod, Lesson, Material, PrepTime, Theme
+
+VALID_LANG_IDS = [lang[0] for lang in settings.LANGUAGES]
 
 
 class LessonView(TemplateView):
@@ -30,6 +33,7 @@ class LessonListPartialView(TemplateView):
             {
                 "key": "theme",
                 "name": "Theme",
+                "translated_name": _("Theme"),
                 "icons": [
                     static("icons/filters/themes.svg"),
                     static("icons/filters/themes-hover.svg"),
@@ -39,6 +43,7 @@ class LessonListPartialView(TemplateView):
             {
                 "key": "instruction_method",
                 "name": "Main method of instruction",
+                "translated_name": _("Main method of instruction"),
                 "icons": [
                     static("icons/filters/methods.svg"),
                     static("icons/filters/methods-hover.svg"),
@@ -48,6 +53,7 @@ class LessonListPartialView(TemplateView):
             {
                 "key": "prep_time",
                 "name": "Prep time for teacher",
+                "translated_name": _("Prep time for teacher"),
                 "icons": [
                     static("icons/filters/prep.svg"),
                     static("icons/filters/prep-hover.svg"),
@@ -57,6 +63,7 @@ class LessonListPartialView(TemplateView):
             {
                 "key": "materials",
                 "name": "Materials",
+                "translated_name": _("Materials"),
                 "icons": [
                     static("icons/filters/materials.svg"),
                     static("icons/filters/materials-hover.svg"),
@@ -66,6 +73,7 @@ class LessonListPartialView(TemplateView):
             {
                 "key": "keywords",
                 "name": "Keywords",
+                "translated_name": _("Keywords"),
                 "icons": [
                     static("icons/filters/keywords.svg"),
                     static("icons/filters/keywords-hover.svg"),
@@ -74,7 +82,7 @@ class LessonListPartialView(TemplateView):
             },
         ]
 
-        lessons = Lesson.objects.all()
+        lessons = Lesson.objects.all().filter(language__code=translation.get_language())
 
         for filter_dict in context["filters"]:
             key = filter_dict["key"]
@@ -103,9 +111,10 @@ class LessonListView(LessonListPartialView):
 
     def get(self, request, *args, **kwargs):
         new_language = None
-        if lang := self.request.GET.get('lang'):
-            new_language = lang
-            translation.activate(new_language)
+        if lang := self.request.GET.get("lang"):
+            if lang in VALID_LANG_IDS:
+                new_language = lang
+                translation.activate(new_language)
 
         response = super().get(request, *args, **kwargs)
 

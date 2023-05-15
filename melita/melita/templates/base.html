@@ -70,7 +70,7 @@
                             {% translate "Language selection" %}
 
                             {% for language in languages %}
-                            <a href="/?lang={{ language.code }}" {% if language.code == CURRENT_LANGUAGE %}class="active"{% endif %}>{{ language.name_local }}</a>
+                            <a href="/?lang={{ language.code }}" {% if language.code == CURRENT_LANGUAGE %}class="active"{% endif %}>{{ language.name_local|capfirst }}</a>
                             {% endfor %}
                         </div>
                     </div>

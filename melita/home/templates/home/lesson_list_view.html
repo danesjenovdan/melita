@@ -22,11 +22,11 @@
           <button class="ratio ratio-1x1 filter" @click="showPopup('{{ filter.key }}')" @click.outside="showPopup('{{ filter.key }}', false)">
             <div class="content content--behind">
               <img src="{{ filter.icons.1 }}" />
-              <span>{{ filter.name }}</span>
+              <span>{{ filter.translated_name }}</span>
             </div>
             <div class="content" x-show="!getFilter('{{ filter.key }}').enabled_options.length">
               <img src="{{ filter.icons.0 }}" />
-              <span>{{ filter.name }}</span>
+              <span>{{ filter.translated_name }}</span>
             </div>
             <template x-if="getFilter('{{ filter.key }}').showPopup">
               <div class="filter-popup">
@@ -53,14 +53,14 @@
   <div class="split-child">
     <div class="list-half">
       <div class="header">
-        <h2>Lessons</h2>
+        <h2>{% translate "Lessons" %}</h2>
       </div>
       <div class="filters">
         <ul class="filter-pills">
           <template x-for="filter in enabledFilters">
             <li>
               <span class="badge rounded-pill">
-                <span x-text="filter.name"></span>
+                <span x-text="filter.translated_name"></span>
                 <button type="button" class="btn-close ms-2" aria-label="Remove" @click="filter.enabled_options = []"></button>
               </span>
             </li>
