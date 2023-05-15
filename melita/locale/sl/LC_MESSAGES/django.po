@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 04:19+0200\n"
+"POT-Creation-Date: 2023-05-15 14:45+0200\n"
 "PO-Revision-Date: 2023-05-10 22:18+0000\n"
 "Last-Translator: Weblate Admin <tech@danesjenovdan.si>\n"
 "Language-Team: Slovenian <http://weblate.lb.djnd.si/projects/melita/wagtail/"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 4.16.4\n"
+
+#: home/templates/home/lesson_list_view.html:56
+msgid "Lessons"
+msgstr "Učne ure"
 
 #: home/templates/home/lesson_view.html:8
 msgid "Back to the list"
@@ -33,10 +37,10 @@ msgid "Activities"
 msgstr "Aktivnosti"
 
 #: home/templates/home/lesson_view.html:66
-msgid "Aim:"
+msgid "Aim"
 msgstr ""
 
-#: home/templates/home/lesson_view.html:75
+#: home/templates/home/lesson_view.html:75 home/views.py:76
 msgid "Keywords"
 msgstr "Ključne besede"
 
@@ -56,7 +60,7 @@ msgstr "Prenesi predstavitev"
 msgid "Download worksheet"
 msgstr "Prenesi delovni list"
 
-#: home/templates/home/lesson_view.html:115
+#: home/templates/home/lesson_view.html:115 home/views.py:36
 msgid "Theme"
 msgstr "Tema"
 
@@ -64,15 +68,15 @@ msgstr "Tema"
 msgid "Lesson duration"
 msgstr "Čas učne ure"
 
-#: home/templates/home/lesson_view.html:127
+#: home/templates/home/lesson_view.html:127 home/views.py:46
 msgid "Main method of instruction"
 msgstr "Učna oblika"
 
-#: home/templates/home/lesson_view.html:133
+#: home/templates/home/lesson_view.html:133 home/views.py:66
 msgid "Materials"
 msgstr "Pripomočki"
 
-#: home/templates/home/lesson_view.html:139
+#: home/templates/home/lesson_view.html:139 home/views.py:56
 msgid "Prep time for teacher"
 msgstr "Čas priprave za učitelja_ico"
 

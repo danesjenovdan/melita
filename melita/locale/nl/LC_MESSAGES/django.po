@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-11 04:19+0200\n"
+"POT-Creation-Date: 2023-05-15 14:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: home/templates/home/lesson_list_view.html:56
+msgid "Lessons"
+msgstr "Lessen"
 
 #: home/templates/home/lesson_view.html:8
 msgid "Back to the list"
@@ -31,10 +34,10 @@ msgid "Activities"
 msgstr "Activiteiten"
 
 #: home/templates/home/lesson_view.html:66
-msgid "Aim:"
+msgid "Aim"
 msgstr ""
 
-#: home/templates/home/lesson_view.html:75
+#: home/templates/home/lesson_view.html:75 home/views.py:76
 msgid "Keywords"
 msgstr "Sleutelwoorden"
 
@@ -54,7 +57,7 @@ msgstr "Download presentatie"
 msgid "Download worksheet"
 msgstr "Download werkblad"
 
-#: home/templates/home/lesson_view.html:115
+#: home/templates/home/lesson_view.html:115 home/views.py:36
 msgid "Theme"
 msgstr "Thema"
 
@@ -62,15 +65,15 @@ msgstr "Thema"
 msgid "Lesson duration"
 msgstr "Lesduur"
 
-#: home/templates/home/lesson_view.html:127
+#: home/templates/home/lesson_view.html:127 home/views.py:46
 msgid "Main method of instruction"
 msgstr "Belangrijkste lesmethode"
 
-#: home/templates/home/lesson_view.html:133
+#: home/templates/home/lesson_view.html:133 home/views.py:66
 msgid "Materials"
 msgstr "Materialen"
 
-#: home/templates/home/lesson_view.html:139
+#: home/templates/home/lesson_view.html:139 home/views.py:56
 msgid "Prep time for teacher"
 msgstr "Voorbereidingstijd docent"
 
@@ -90,23 +93,23 @@ msgstr "Gerelateerde lessen"
 msgid "View live"
 msgstr ""
 
-#: melita/settings/base.py:132 melita/settings/base.py:127
+#: melita/settings/base.py:132
 msgid "English"
 msgstr ""
 
-#: melita/settings/base.py:133 melita/settings/base.py:128
+#: melita/settings/base.py:133
 msgid "Dutch"
 msgstr ""
 
-#: melita/settings/base.py:134 melita/settings/base.py:129
+#: melita/settings/base.py:134
 msgid "Estonian"
 msgstr ""
 
-#: melita/settings/base.py:135 melita/settings/base.py:130
+#: melita/settings/base.py:135
 msgid "Polish"
 msgstr ""
 
-#: melita/settings/base.py:136 melita/settings/base.py:131
+#: melita/settings/base.py:136
 msgid "Slovenian"
 msgstr ""
 
