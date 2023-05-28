@@ -211,7 +211,9 @@
                     <h2 class="lesson__section-title">{% translate "Related lessons" %}</h2>
                     <div class="lesson__section-content">
                         {% for related_lesson in lesson.related_lessons.all %}
-                            <div><a href="{% url "lesson" related_lesson.id related_lesson.title|slugify %}">{{ related_lesson }}</a></div>
+                            <div class="related">
+                                <a href="{% url "lesson" related_lesson.id related_lesson.title|slugify %}">{{ related_lesson.title }}</a>
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
