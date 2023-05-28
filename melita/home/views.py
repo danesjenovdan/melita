@@ -5,7 +5,7 @@ from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 from django.views.generic.base import TemplateView
 
-from .models import InstructionMethod, Lesson, Material, PrepTime, Theme
+from .models import InstructionMethod, Lesson, Material, PrepTime, StudentLevel, Theme
 
 VALID_LANG_IDS = [lang[0] for lang in settings.LANGUAGES]
 
@@ -57,6 +57,18 @@ class LessonListPartialView(TemplateView):
                 ],
                 "options": map_attr(
                     InstructionMethod.objects.exclude(**{f"{name_attr}": ""}), name_attr
+                ),
+            },
+            {
+                "key": "student_level",
+                "name": "Student level",
+                "translated_name": _("Student level"),
+                "icons": [
+                    static("icons/filters/methods.svg"),
+                    static("icons/filters/methods-hover.svg"),
+                ],
+                "options": map_attr(
+                    StudentLevel.objects.exclude(**{f"{name_attr}": ""}), name_attr
                 ),
             },
             {

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static i18n wagtailcore_tags %}
+{% load static i18n wagtailcore_tags translatable_name_tags %}
 
 {% block title %}{{ lesson.title }}{% endblock %}
 
@@ -113,7 +113,7 @@
                     <div class="lesson__meta-data">
                         <div class="lesson__meta-data-box">
                             <dt>{% translate "Theme" %}</dt>
-                            <dd>{{ lesson.theme }}</dd>
+                            <dd>{{ lesson.theme|name_for_lang }}</dd>
                         </div>
                     </div>
                     <div class="lesson__meta-data">
@@ -124,14 +124,20 @@
                     </div>
                     <div class="lesson__meta-data">
                         <div class="lesson__meta-data-box">
+                            <dt>{% translate "Student level" %}</dt>
+                            <dd>{{ lesson.student_level|name_for_lang }}</dd>
+                        </div>
+                    </div>
+                    <div class="lesson__meta-data">
+                        <div class="lesson__meta-data-box">
                             <dt>{% translate "Main method of instruction" %}</dt>
-                            <dd>{{ lesson.instruction_method }}</dd>
+                            <dd>{{ lesson.instruction_method|name_for_lang }}</dd>
                         </div>
                     </div>
                     <div class="lesson__meta-data">
                         <div class="lesson__meta-data-box">
                             <dt>{% translate "Materials" %}</dt>
-                            <dd>{{ lesson.materials.all|join:", " }}</dd>
+                            <dd>{{ lesson.materials.all|joined_names_for_lang }}</dd>
                         </div>
                     </div>
                     <div class="lesson__meta-data">
