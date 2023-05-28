@@ -76,7 +76,7 @@
                     <div class="lesson__section-content">
                         <div class="badges">
                             {% for keyword in lesson.keywords.all %}
-                                <span class="badge rounded-pill">{{ keyword }}</span>
+                                <a href="/?filter[keywords]={{ keyword|urlencode }}" class="badge rounded-pill">{{ keyword|capfirst }}</a>
                             {% endfor %}
                         </div>
                     </div>
