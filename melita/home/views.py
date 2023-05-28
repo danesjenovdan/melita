@@ -29,6 +29,11 @@ class LessonListPartialView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        lang = translation.get_language()
+        name_attr = "name" if lang == "en" else f"name_{lang}"
+
+        lessons = Lesson.objects.all().filter(language__code=lang)
+
         context["filters"] = [
             {
                 "key": "theme",
@@ -38,7 +43,9 @@ class LessonListPartialView(TemplateView):
                     static("icons/filters/themes.svg"),
                     static("icons/filters/themes-hover.svg"),
                 ],
-                "options": map_attr(Theme.objects.all(), "name"),
+                "options": map_attr(
+                    Theme.objects.exclude(**{f"{name_attr}": ""}), name_attr
+                ),
             },
             {
                 "key": "instruction_method",
@@ -48,7 +55,9 @@ class LessonListPartialView(TemplateView):
                     static("icons/filters/methods.svg"),
                     static("icons/filters/methods-hover.svg"),
                 ],
-                "options": map_attr(InstructionMethod.objects.all(), "name"),
+                "options": map_attr(
+                    InstructionMethod.objects.exclude(**{f"{name_attr}": ""}), name_attr
+                ),
             },
             {
                 "key": "prep_time",
@@ -68,7 +77,9 @@ class LessonListPartialView(TemplateView):
                     static("icons/filters/materials.svg"),
                     static("icons/filters/materials-hover.svg"),
                 ],
-                "options": map_attr(Material.objects.all(), "name"),
+                "options": map_attr(
+                    Material.objects.exclude(**{f"{name_attr}": ""}), name_attr
+                ),
             },
             {
                 "key": "keywords",
@@ -78,11 +89,9 @@ class LessonListPartialView(TemplateView):
                     static("icons/filters/keywords.svg"),
                     static("icons/filters/keywords-hover.svg"),
                 ],
-                "options": map_attr(Lesson.keywords.all(), "name"),
+                "options": list(lessons.values_list("keywords__name", flat=True)),
             },
         ]
-
-        lessons = Lesson.objects.all().filter(language__code=translation.get_language())
 
         for filter_dict in context["filters"]:
             key = filter_dict["key"]

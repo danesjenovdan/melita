@@ -9,6 +9,20 @@ from wagtail.models import Orderable
 from wagtailautocomplete.edit_handlers import AutocompletePanel
 
 
+class TranslatableName(models.Model):
+    name = models.CharField(max_length=50, default="", blank=True)
+    name_nl = models.CharField(max_length=50, default="", blank=True)
+    name_et = models.CharField(max_length=50, default="", blank=True)
+    name_pl = models.CharField(max_length=50, default="", blank=True)
+    name_sl = models.CharField(max_length=50, default="", blank=True)
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        abstract = True
+
+
 class ProgramType(models.Model):
     name = models.CharField(max_length=50)
 
@@ -36,11 +50,9 @@ class KeyTerm(Orderable):
         return f"{self.term}"
 
 
-class Theme(models.Model):
-    name = models.CharField(max_length=50)
-
+class Theme(TranslatableName):
     def __str__(self):
-        return f"{self.name}"
+        return f"Theme: {self.name}"
 
 
 class Duration(models.Model):
@@ -50,11 +62,9 @@ class Duration(models.Model):
         return f"{self.name}"
 
 
-class InstructionMethod(models.Model):
-    name = models.CharField(max_length=50)
-
+class InstructionMethod(TranslatableName):
     def __str__(self):
-        return f"{self.name}"
+        return f"InstructionMethod: {self.name}"
 
 
 class PrepTime(models.IntegerChoices):
@@ -65,11 +75,9 @@ class PrepTime(models.IntegerChoices):
     # FIVE = 5, "*****"
 
 
-class Material(models.Model):
-    name = models.CharField(max_length=50)
-
+class Material(TranslatableName):
     def __str__(self):
-        return f"{self.name}"
+        return f"Material: {self.name}"
 
 
 class ActivityType(models.Model):
