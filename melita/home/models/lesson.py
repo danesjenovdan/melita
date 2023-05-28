@@ -9,6 +9,20 @@ from wagtail.models import Orderable
 from wagtailautocomplete.edit_handlers import AutocompletePanel
 
 
+class TranslatableName(models.Model):
+    name = models.CharField(max_length=50, default="", blank=True)
+    name_nl = models.CharField(max_length=50, default="", blank=True)
+    name_et = models.CharField(max_length=50, default="", blank=True)
+    name_pl = models.CharField(max_length=50, default="", blank=True)
+    name_sl = models.CharField(max_length=50, default="", blank=True)
+
+    def __str__(self):
+        return f"{self.name}"
+
+    class Meta:
+        abstract = True
+
+
 class ProgramType(models.Model):
     name = models.CharField(max_length=50)
 
@@ -36,11 +50,9 @@ class KeyTerm(Orderable):
         return f"{self.term}"
 
 
-class Theme(models.Model):
-    name = models.CharField(max_length=50)
-
+class Theme(TranslatableName):
     def __str__(self):
-        return f"{self.name}"
+        return f"Theme: {self.name}"
 
 
 class Duration(models.Model):
@@ -50,11 +62,14 @@ class Duration(models.Model):
         return f"{self.name}"
 
 
-class InstructionMethod(models.Model):
-    name = models.CharField(max_length=50)
-
+class InstructionMethod(TranslatableName):
     def __str__(self):
-        return f"{self.name}"
+        return f"InstructionMethod: {self.name}"
+
+
+class StudentLevel(TranslatableName):
+    def __str__(self):
+        return f"StudentLevel: {self.name}"
 
 
 class PrepTime(models.IntegerChoices):
@@ -65,11 +80,9 @@ class PrepTime(models.IntegerChoices):
     # FIVE = 5, "*****"
 
 
-class Material(models.Model):
-    name = models.CharField(max_length=50)
-
+class Material(TranslatableName):
     def __str__(self):
-        return f"{self.name}"
+        return f"Material: {self.name}"
 
 
 class ActivityType(models.Model):
@@ -164,6 +177,7 @@ class Lesson(ClusterableModel):
     theme = models.ForeignKey(Theme, on_delete=models.PROTECT)
     duration = models.ForeignKey(Duration, on_delete=models.PROTECT)
     instruction_method = models.ForeignKey(InstructionMethod, on_delete=models.PROTECT)
+    student_level = models.ForeignKey(StudentLevel, on_delete=models.PROTECT, null=True)
     prep_time = models.IntegerField(choices=PrepTime.choices)
     materials = ParentalManyToManyField(Material, blank=True)
     goals = RichTextField(features=["ul"])
@@ -185,6 +199,7 @@ class Lesson(ClusterableModel):
         FieldPanel("theme"),
         FieldPanel("duration"),
         FieldPanel("instruction_method"),
+        FieldPanel("student_level"),
         FieldPanel("prep_time"),
         FieldPanel("materials", widget=forms.CheckboxSelectMultiple),
         FieldPanel("goals"),

@@ -21,6 +21,7 @@ from .models import (
     Lesson,
     Material,
     ProgramType,
+    StudentLevel,
     Theme,
 )
 
@@ -94,6 +95,12 @@ class InstructionMethodAdmin(ModelAdmin):
     list_display = ("name",)
 
 
+class StudentLevelAdmin(ModelAdmin):
+    model = StudentLevel
+    menu_icon = "list-ul"
+    list_display = ("name",)
+
+
 class MaterialAdmin(ModelAdmin):
     model = Material
     menu_icon = "list-ul"
@@ -125,6 +132,7 @@ class LessonsGroup(ModelAdminGroup):
         ThemeAdmin,
         DurationAdmin,
         InstructionMethodAdmin,
+        StudentLevelAdmin,
         MaterialAdmin,
         ActivityTypeAdmin,
         TagAdmin,

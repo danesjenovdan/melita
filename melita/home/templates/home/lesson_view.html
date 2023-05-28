@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static i18n wagtailcore_tags %}
+{% load static i18n wagtailcore_tags translatable_name_tags %}
 
 {% block title %}{{ lesson.title }}{% endblock %}
 
@@ -76,7 +76,7 @@
                     <div class="lesson__section-content">
                         <div class="badges">
                             {% for keyword in lesson.keywords.all %}
-                                <span class="badge rounded-pill">{{ keyword }}</span>
+                                <a href="/?filter[keywords]={{ keyword|urlencode }}" class="badge rounded-pill">{{ keyword|capfirst }}</a>
                             {% endfor %}
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                     <div class="lesson__meta-data">
                         <div class="lesson__meta-data-box">
                             <dt>{% translate "Theme" %}</dt>
-                            <dd>{{ lesson.theme }}</dd>
+                            <dd>{{ lesson.theme|name_for_lang }}</dd>
                         </div>
                     </div>
                     <div class="lesson__meta-data">
@@ -124,14 +124,20 @@
                     </div>
                     <div class="lesson__meta-data">
                         <div class="lesson__meta-data-box">
+                            <dt>{% translate "Student level" %}</dt>
+                            <dd>{{ lesson.student_level|name_for_lang }}</dd>
+                        </div>
+                    </div>
+                    <div class="lesson__meta-data">
+                        <div class="lesson__meta-data-box">
                             <dt>{% translate "Main method of instruction" %}</dt>
-                            <dd>{{ lesson.instruction_method }}</dd>
+                            <dd>{{ lesson.instruction_method|name_for_lang }}</dd>
                         </div>
                     </div>
                     <div class="lesson__meta-data">
                         <div class="lesson__meta-data-box">
                             <dt>{% translate "Materials" %}</dt>
-                            <dd>{{ lesson.materials.all|join:", " }}</dd>
+                            <dd>{{ lesson.materials.all|joined_names_for_lang }}</dd>
                         </div>
                     </div>
                     <div class="lesson__meta-data">
@@ -211,7 +217,9 @@
                     <h2 class="lesson__section-title">{% translate "Related lessons" %}</h2>
                     <div class="lesson__section-content">
                         {% for related_lesson in lesson.related_lessons.all %}
-                            <div><a href="{% url "lesson" related_lesson.id related_lesson.title|slugify %}">{{ related_lesson }}</a></div>
+                            <div class="related">
+                                <a href="{% url "lesson" related_lesson.id related_lesson.title|slugify %}">{{ related_lesson.title }}</a>
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
