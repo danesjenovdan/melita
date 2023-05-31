@@ -189,7 +189,7 @@
                         <div class="sources">
                             {% for further_reading in lesson.further_reading.all %}
                                 <div class="source">
-                                    <a href="{{ further_reading.source_url }}" target="_blank"><i class="icon icon-open-new-page me-2"></i>{{ further_reading.source_description }}</a>
+                                    <a href="{{ further_reading.source_url }}" target="_blank"><i class="icon icon-open-new-page me-2"></i>{% if further_reading.source_description %}{{ further_reading.source_description }}{% else %}{{ further_reading.source_url }}{% endif %}</a>
                                 </div>
                             {% endfor %}
                         </div>
@@ -204,7 +204,7 @@
                         <div class="sources">
                             {% for source in lesson.sources.all %}
                                 <div class="source">
-                                    <a href="{{ source.source_url }}" target="_blank"><i class="icon icon-open-new-page me-2"></i>{{ source.source_description }}</a>
+                                    <a href="{{ source.source_url }}" target="_blank"><i class="icon icon-open-new-page me-2"></i>{% if source.source_description %}{{ source.source_description }}{% else %}{{ source.source_url }}{% endif %}</a>
                                 </div>
                             {% endfor %}
                         </div>
