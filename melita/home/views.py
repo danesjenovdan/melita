@@ -13,6 +13,11 @@ VALID_LANG_IDS = [lang[0] for lang in settings.LANGUAGES]
 class LessonView(TemplateView):
     template_name = "home/lesson_view.html"
 
+    def get(self, request, *args, **kwargs):
+        lesson = get_object_or_404(Lesson, id=kwargs["id"])
+        translation.activate(lesson.language.code)
+        return super().get(request, *args, **kwargs)
+
     def get_context_data(self, id, slug, **kwargs):
         context = super().get_context_data(**kwargs)
         context["lesson"] = get_object_or_404(Lesson, id=id)
