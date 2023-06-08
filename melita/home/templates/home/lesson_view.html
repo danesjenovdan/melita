@@ -6,6 +6,7 @@
 {% block body_class %}bg-alt{% endblock %}
 
 {% block back_content %}{% translate "Back to the list" %}{% endblock %}
+{% block back_content_bottom %}{% translate "Back to the list" %}{% endblock %}
 
 {% block content %}
 <div class="lesson">
@@ -119,7 +120,7 @@
                     <div class="lesson__meta-data">
                         <div class="lesson__meta-data-box">
                             <dt>{% translate "Lesson duration" %}</dt>
-                            <dd>{{ lesson.duration }}</dd>
+                            <dd>{{ lesson.duration|name_for_lang }}</dd>
                         </div>
                     </div>
                     <div class="lesson__meta-data">

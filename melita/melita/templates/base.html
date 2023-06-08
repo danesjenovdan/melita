@@ -55,6 +55,17 @@
             <main class="page-content">
                 {% block content %}{% endblock %}
             </main>
+            {% block back_nav_bottom %}
+            <div class="container">
+                <div class="row my-7">
+                    <div class="col">
+                        <div class="back-nav">
+                            <a href="/"><i class="icon icon--flipped icon-arrow me-3"></i>{% block back_content_bottom %}{% translate "Back to the home page" %}{% endblock %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
             <footer class="page-footer container-fluid">
                 <div class="container">
                     <div class="row footer-links py-3 justify-content-between">

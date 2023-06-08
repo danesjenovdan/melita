@@ -251,7 +251,7 @@
 
           .lesson-link {
             display: block;
-            padding: 20px 16px;
+            padding: 20px 60px 20px 16px;
             position: relative;
 
             &:hover {
@@ -268,7 +268,7 @@
             .description {
               margin: 0;
               font-family: $font-family-sans-serif;
-              font-size: 11px;
+              font-size: 14px;
               font-style: italic;
 
               p {
