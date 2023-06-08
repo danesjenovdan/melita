@@ -64,8 +64,8 @@ class LessonListPartialView(TemplateView):
                 "name": "Student level",
                 "translated_name": _("Student level"),
                 "icons": [
-                    static("icons/filters/methods.svg"),
-                    static("icons/filters/methods-hover.svg"),
+                    static("icons/filters/student-level.svg"),
+                    static("icons/filters/student-level-hover.svg"),
                 ],
                 "options": map_attr(
                     StudentLevel.objects.exclude(**{f"{name_attr}": ""}), name_attr
