@@ -54,11 +54,8 @@ class Theme(TranslatableName):
     pass
 
 
-class Duration(models.Model):
-    name = models.CharField(max_length=50)
-
-    def __str__(self):
-        return f"{self.name}"
+class Duration(TranslatableName):
+    pass
 
 
 class InstructionMethod(TranslatableName):
@@ -180,7 +177,9 @@ class Lesson(ClusterableModel):
     keywords = ClusterTaggableManager(
         through=LessonTag, blank=True, verbose_name="Keywords"
     )
-    pedagogical_tips_and_recommendations = RichTextField(features=["ul"], blank=True, null=True)
+    pedagogical_tips_and_recommendations = RichTextField(
+        features=["ul"], blank=True, null=True
+    )
     related_lessons = ParentalManyToManyField("self", blank=True)
 
     panels = [
