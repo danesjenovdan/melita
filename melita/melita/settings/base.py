@@ -191,3 +191,5 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+TAGGIT_TAGS_FROM_STRING = "melita.tags.custom_tag_string_parser"
