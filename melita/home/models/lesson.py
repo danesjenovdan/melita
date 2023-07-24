@@ -93,10 +93,10 @@ class Activity(Orderable):
     lesson = ParentalKey("Lesson", on_delete=models.CASCADE, related_name="activities")
 
     activity_type = models.ForeignKey(ActivityType, on_delete=models.PROTECT)
-    duration = models.CharField(max_length=100)
-    type = models.CharField(max_length=100)
-    description = models.TextField()
-    aim = models.TextField()
+    duration = models.CharField(max_length=100, blank=True, null=True)
+    type = models.CharField(max_length=100, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    aim = models.TextField(blank=True, null=True)
     text = RichTextField(
         features=[
             "h3",
@@ -109,7 +109,9 @@ class Activity(Orderable):
             "document-link",
             "image",
             "embed",
-        ]
+        ],
+        blank=True,
+        null=True,
     )
 
 

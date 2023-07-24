@@ -74,6 +74,11 @@
             font-weight: 700;
             font-style: italic;
             text-transform: uppercase;
+
+            a {
+              text-decoration: none;
+              color: inherit;
+            }
           }
 
           .activity__aim {
@@ -167,7 +172,6 @@
 
         .activity {
           .activity__title {
-            margin-bottom: 3rem;
             font-size: 28px;
             font-weight: 700;
             font-style: italic;
@@ -177,6 +181,10 @@
               margin-bottom: 1.5rem;
               font-size: 21px;
             }
+          }
+
+          .activity__title + .activity__text {
+            margin-top: 3rem;
           }
 
           &.rich-text {

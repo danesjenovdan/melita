@@ -4,8 +4,9 @@ from django.templatetags.static import static
 from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 from django.views.generic.base import TemplateView
+from icu import Collator, Locale
 
-from .models import InstructionMethod, Lesson, Material, PrepTime, StudentLevel, Theme
+from .models import Duration, Lesson, Material, PrepTime, StudentLevel, Theme
 
 VALID_LANG_IDS = [lang[0] for lang in settings.LANGUAGES]
 
@@ -35,9 +36,14 @@ class LessonListPartialView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         lang = translation.get_language()
+        collator = Collator.createInstance(Locale(lang))
         name_attr = "name" if lang == "en" else f"name_{lang}"
 
         lessons = Lesson.objects.all().filter(language__code=lang)
+
+        keywords = list(lessons.values_list("keywords__name", flat=True).distinct())
+        keywords = filter(lambda o: bool(o), keywords)
+        sorted_keywords = sorted(set(keywords), key=lambda o: collator.getSortKey(o))
 
         context["filters"] = [
             {
@@ -52,16 +58,28 @@ class LessonListPartialView(TemplateView):
                     Theme.objects.exclude(**{f"{name_attr}": ""}), name_attr
                 ),
             },
+            # {
+            #     "key": "instruction_method",
+            #     "name": "Main method of instruction",
+            #     "translated_name": _("Main method of instruction"),
+            #     "icons": [
+            #         static("icons/filters/methods.svg"),
+            #         static("icons/filters/methods-hover.svg"),
+            #     ],
+            #     "options": map_attr(
+            #         InstructionMethod.objects.exclude(**{f"{name_attr}": ""}), name_attr
+            #     ),
+            # },
             {
-                "key": "instruction_method",
-                "name": "Main method of instruction",
-                "translated_name": _("Main method of instruction"),
+                "key": "duration",
+                "name": "Duration",
+                "translated_name": _("Duration"),
                 "icons": [
                     static("icons/filters/methods.svg"),
                     static("icons/filters/methods-hover.svg"),
                 ],
                 "options": map_attr(
-                    InstructionMethod.objects.exclude(**{f"{name_attr}": ""}), name_attr
+                    Duration.objects.exclude(**{f"{name_attr}": ""}), name_attr
                 ),
             },
             {
@@ -106,7 +124,7 @@ class LessonListPartialView(TemplateView):
                     static("icons/filters/keywords.svg"),
                     static("icons/filters/keywords-hover.svg"),
                 ],
-                "options": list(lessons.values_list("keywords__name", flat=True)),
+                "options": list(sorted_keywords),
             },
         ]
 

@@ -62,9 +62,13 @@
                     <div class="lesson__section-content lesson__section-content--has-stripe">
                         <div class="lesson__section-stripe" style="background: {{ activity.activity_type.color }};"></div>
                         <div class="activity rich-text">
-                            <p class="activity__title"><a href="#expanded_activity_{{ activity.id }}">{{ activity.activity_type.name }} ({{ activity.duration }}) - {{ activity.type }}</a></p>
+                            <p class="activity__title"><a href="#expanded_activity_{{ activity.id }}">{{ activity.activity_type.name }} {% if activity.duration %}({{ activity.duration }}){% endif %} {% if activity.type %}- {{ activity.type }}{% endif %}</a></p>
+                            {% if activity.description %}
                             <p class="activity__description">{{ activity.description }}</p>
+                            {% endif %}
+                            {% if activity.aim %}
                             <p class="activity__aim"><span>{% translate "Aim" %}:</span> {{ activity.aim }}</p>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
@@ -76,7 +80,7 @@
                     <h2 class="lesson__section-title">{% translate "Keywords" %}</h2>
                     <div class="lesson__section-content">
                         <div class="badges">
-                            {% for keyword in lesson.keywords.all %}
+                            {% for keyword in lesson|sorted_keywords %}
                                 <a href="/?filter[keywords]={{ keyword|urlencode }}" class="badge rounded-pill">{{ keyword|capfirst }}</a>
                             {% endfor %}
                         </div>
@@ -96,17 +100,17 @@
             <div class="col-12 col-md-4 lesson__sidebar">
                 {% if lesson.lesson_file %}
                 <div class="mt-0 my-4">
-                    <a href="{{ lesson.lesson_file.url }}" download="{{ lesson.lesson_file.filename }}" class="btn btn-outline-behind-box btn-behind-yellow">{% translate "Download lesson" %}<i class="icon icon-download ms-4"></i></a>
+                    <a href="{{ lesson.lesson_file.url }}" target="_blank" download="{{ lesson.lesson_file.filename }}" class="btn btn-outline-behind-box btn-behind-yellow">{% translate "Download lesson" %}<i class="icon icon-download ms-4"></i></a>
                 </div>
                 {% endif %}
                 {% if lesson.slides_file %}
                 <div class="my-4">
-                    <a href="{{ lesson.slides_file.url }}" download="{{ lesson.slides_file.filename }}" class="btn btn-outline-behind-box btn-behind-red">{% translate "Download slides" %}<i class="icon icon-download ms-4"></i></a>
+                    <a href="{{ lesson.slides_file.url }}" target="_blank" download="{{ lesson.slides_file.filename }}" class="btn btn-outline-behind-box btn-behind-red">{% translate "Download slides" %}<i class="icon icon-download ms-4"></i></a>
                 </div>
                 {% endif %}
                 {% if lesson.worksheets_file %}
                 <div class="my-4">
-                    <a href="{{ lesson.worksheets_file.url }}" download="{{ lesson.worksheets_file.filename }}" class="btn btn-outline-behind-box btn-behind-blue">{% translate "Download worksheet" %}<i class="icon icon-download ms-4"></i></a>
+                    <a href="{{ lesson.worksheets_file.url }}" target="_blank" download="{{ lesson.worksheets_file.filename }}" class="btn btn-outline-behind-box btn-behind-blue">{% translate "Download worksheet" %}<i class="icon icon-download ms-4"></i></a>
                 </div>
                 {% endif %}
                 <hr class="thick my-6">
@@ -169,8 +173,10 @@
                         <div class="lesson__activity-section my-4 my-md-7 py-4 py-md-7">
                             <a id="expanded_activity_{{ activity.id }}" class="lesson__activity-section-stripe" style="background: {{ activity.activity_type.color }};"></a>
                             <div class="activity rich-text rich-text--large">
-                                <p class="activity__title">{{ activity.activity_type.name }} ({{ activity.duration }})</p>
+                                <p class="activity__title">{{ activity.activity_type.name }} {% if activity.duration %}({{ activity.duration }}){% endif %}</p>
+                                {% if activity.text %}
                                 <div class="activity__text">{{ activity.text|richtext }}</div>
+                                {% endif %}
                             </div>
                         </div>
                         {% endfor %}
@@ -183,21 +189,6 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8 lesson__content">
-                {% if lesson.further_reading.all %}
-                <div class="lesson__section my-7">
-                    <h2 class="lesson__section-title">{% translate "Further reading" %}</h2>
-                    <div class="lesson__section-content">
-                        <div class="sources">
-                            {% for further_reading in lesson.further_reading.all %}
-                                <div class="source">
-                                    <a href="{{ further_reading.source_url }}" target="_blank"><i class="icon icon-open-new-page me-2"></i>{% if further_reading.source_description %}{{ further_reading.source_description }}{% else %}{{ further_reading.source_url }}{% endif %}</a>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-
                 {% if lesson.sources.all %}
                 <div class="lesson__section my-7">
                     <h2 class="lesson__section-title">{% translate "Sources" %}</h2>
@@ -206,6 +197,21 @@
                             {% for source in lesson.sources.all %}
                                 <div class="source">
                                     <a href="{{ source.source_url }}" target="_blank"><i class="icon icon-open-new-page me-2"></i>{% if source.source_description %}{{ source.source_description }}{% else %}{{ source.source_url }}{% endif %}</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if lesson.further_reading.all %}
+                <div class="lesson__section my-7">
+                    <h2 class="lesson__section-title">{% translate "Further reading" %}</h2>
+                    <div class="lesson__section-content">
+                        <div class="sources">
+                            {% for further_reading in lesson.further_reading.all %}
+                                <div class="source">
+                                    <a href="{{ further_reading.source_url }}" target="_blank"><i class="icon icon-open-new-page me-2"></i>{% if further_reading.source_description %}{{ further_reading.source_description }}{% else %}{{ further_reading.source_url }}{% endif %}</a>
                                 </div>
                             {% endfor %}
                         </div>
