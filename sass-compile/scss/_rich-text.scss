@@ -58,6 +58,30 @@
     }
   }
 
+  ol {
+    list-style: decimal;
+
+    & ol {
+      list-style: lower-alpha;
+
+      & ol {
+        list-style: lower-roman;
+
+        & ol {
+          list-style: decimal;
+
+          & ol {
+            list-style: lower-alpha;
+
+            & ol {
+              list-style: lower-roman;
+            }
+          }
+        }
+      }
+    }
+  }
+
   &.rich-text--large {
     p,
     ul,

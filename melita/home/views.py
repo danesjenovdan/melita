@@ -66,8 +66,8 @@ class LessonListPartialView(TemplateView):
             },
             {
                 "key": "student_level",
-                "name": "Student level",
-                "translated_name": _("Student level"),
+                "name": "Level",
+                "translated_name": _("Level"),
                 "icons": [
                     static("icons/filters/student-level.svg"),
                     static("icons/filters/student-level-hover.svg"),

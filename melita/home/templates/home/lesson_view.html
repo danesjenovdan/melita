@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static i18n wagtailcore_tags translatable_name_tags %}
+{% load static i18n wagtailcore_tags translatable_name_tags lesson_tags %}
 
 {% block title %}{{ lesson.title }}{% endblock %}
 
@@ -125,7 +125,7 @@
                     </div>
                     <div class="lesson__meta-data">
                         <div class="lesson__meta-data-box">
-                            <dt>{% translate "Student level" %}</dt>
+                            <dt>{% translate "Level" %}</dt>
                             <dd>{{ lesson.student_level|name_for_lang }}</dd>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                 <div class="lesson__section my-7">
                     <h2 class="lesson__section-title">{% translate "Related lessons" %}</h2>
                     <div class="lesson__section-content">
-                        {% for related_lesson in lesson.related_lessons.all %}
+                        {% for related_lesson in lesson|sorted_related_lessons %}
                             <div class="related">
                                 <a href="{% url "lesson" related_lesson.id related_lesson.title|slugify %}">{{ related_lesson.title }}</a>
                             </div>

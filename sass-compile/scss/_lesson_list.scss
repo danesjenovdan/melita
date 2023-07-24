@@ -6,6 +6,7 @@
 
     @include media-breakpoint-up(md) {
       flex-direction: row;
+      max-height: 100vh;
     }
 
     .split-child {
@@ -192,6 +193,7 @@
 
     @include media-breakpoint-up(md) {
       padding: 48px 64px;
+      overflow-y: auto;
     }
 
     .header {
