@@ -12,7 +12,7 @@
 <div class="lesson">
     <div class="container">
         <div class="row">
-            <div class="col-8 lesson__content">
+            <div class="col-12 col-md-8 lesson__content">
                 <div class="rich-text">
                     <h1>{{ lesson.title }}</h1>
                 </div>
@@ -93,7 +93,7 @@
                 </div>
                 {% endif %}
             </div>
-            <div class="col-4 lesson__sidebar">
+            <div class="col-12 col-md-4 lesson__sidebar">
                 {% if lesson.lesson_file %}
                 <div class="mt-0 my-4">
                     <a href="{{ lesson.lesson_file.url }}" download="{{ lesson.lesson_file.filename }}" class="btn btn-outline-behind-box btn-behind-yellow">{% translate "Download lesson" %}<i class="icon icon-download ms-4"></i></a>
@@ -159,14 +159,14 @@
             </div>
         </div>
     </div>
-    <section class="bg-body my-7">
+    <section class="bg-body mt-7 mb-2 my-md-7">
         <div class="container">
             <div class="row">
-                <div class="col-9 lesson__content">
+                <div class="col-12 col-md-9 lesson__content">
                     {% if lesson.activities.all %}
-                    <div class="lesson__activities-section py-7">
+                    <div class="lesson__activities-section py-5 py-md-7">
                         {% for activity in lesson.activities.all %}
-                        <div class="lesson__activity-section my-7 py-7">
+                        <div class="lesson__activity-section my-4 my-md-7 py-4 py-md-7">
                             <a id="expanded_activity_{{ activity.id }}" class="lesson__activity-section-stripe" style="background: {{ activity.activity_type.color }};"></a>
                             <div class="activity rich-text rich-text--large">
                                 <p class="activity__title">{{ activity.activity_type.name }} ({{ activity.duration }})</p>
@@ -182,7 +182,7 @@
     </section>
     <div class="container">
         <div class="row">
-            <div class="col-8 lesson__content">
+            <div class="col-12 col-md-8 lesson__content">
                 {% if lesson.further_reading.all %}
                 <div class="lesson__section my-7">
                     <h2 class="lesson__section-title">{% translate "Further reading" %}</h2>

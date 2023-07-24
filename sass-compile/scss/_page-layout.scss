@@ -16,6 +16,18 @@
   }
 }
 
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  @include media-breakpoint-down(sm) {
+    --bs-gutter-x: 3rem;
+  }
+}
+
 .back-nav {
   font-size: 14px;
 }
@@ -39,6 +51,11 @@
       display: flex;
       gap: 4rem;
 
+      @include media-breakpoint-down(sm) {
+        justify-content: space-between;
+        margin-bottom: 2rem;
+      }
+
       a {
         font-weight: 600;
       }
@@ -48,6 +65,15 @@
       display: flex;
       gap: 2rem;
       font-weight: 600;
+
+      @include media-breakpoint-down(sm) {
+        flex-wrap: wrap;
+        gap: 0.25rem 2rem;
+
+        .lang-title {
+          flex-basis: 100%;
+        }
+      }
 
       a {
         font-weight: 400;
@@ -61,6 +87,15 @@
   }
 
   .footer-logos {
+    @include media-breakpoint-down(sm) {
+      gap: 2rem;
+
+      img {
+        display: block;
+        margin-inline: auto;
+      }
+    }
+
     .small {
       font-size: 10px;
     }

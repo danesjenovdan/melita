@@ -43,7 +43,7 @@
         <div class="page-container">
             {% block back_nav %}
             <div class="container">
-                <div class="row my-7">
+                <div class="row my-4 my-md-7">
                     <div class="col">
                         <div class="back-nav">
                             <a href="/"><i class="icon icon--flipped icon-arrow me-3"></i>{% block back_content %}{% translate "Back to the home page" %}{% endblock %}</a>
@@ -57,7 +57,7 @@
             </main>
             {% block back_nav_bottom %}
             <div class="container">
-                <div class="row my-7">
+                <div class="row my-4 my-md-7">
                     <div class="col">
                         <div class="back-nav">
                             <a href="/"><i class="icon icon--flipped icon-arrow me-3"></i>{% block back_content_bottom %}{% translate "Back to the home page" %}{% endblock %}</a>
@@ -66,32 +66,32 @@
                 </div>
             </div>
             {% endblock %}
-            <footer class="page-footer container-fluid">
+            <footer class="page-footer">
                 <div class="container">
                     <div class="row footer-links py-3 justify-content-between">
-                        <div class="col-auto footer-col-links">
+                        <div class="col-12 col-md-auto footer-col-links">
                             <a href="/about">{% translate "About" %}</a>
                             <a href="/how-to-use">{% translate "How to use" %}</a>
                         </div>
-                        <div class="col-auto footer-col-lang">
+                        <div class="col-12 col-md-auto footer-col-lang">
                             {% get_current_language as CURRENT_LANGUAGE %}
                             {% get_available_languages as AVAILABLE_LANGUAGES %}
                             {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
 
-                            {% translate "Language selection" %}
+                            <span class="lang-title">{% translate "Language selection" %}</span>
 
                             {% for language in languages %}
-                            <a href="/?lang={{ language.code }}" {% if language.code == CURRENT_LANGUAGE %}class="active"{% endif %}>{{ language.name_local|capfirst }}</a>
+                            <a href="/?lang={{ language.code }}" class="lang-link {% if language.code == CURRENT_LANGUAGE %}active{% endif %}">{{ language.name_local|capfirst }}</a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="row footer-logos py-3 justify-content-between">
-                        <div class="col-auto">
+                        <div class="col-12 col-md-auto">
                             <img src="{% static 'img/logo-idea.png' %}" alt="IDEA logo" style="height: 65px;">
                         </div>
-                        <div class="col-md-8 d-flex align-items-center">
+                        <div class="col-12 col-md-8 d-flex flex-column flex-md-row align-items-center">
                             <img src="{% static 'img/EN_Co-fundedbytheEU_RGB_POS.svg' %}" alt="Co-funded by the EU" style="height: 55px;">
-                            <div class="small ms-3">
+                            <div class="small ms-0 ms-md-3">
                                 The European Commission's support for the production of this publication
                                 does not constitute an endorsement of the contents, which reflect the
                                 views only of the authors, and the Commission cannot be held responsible
