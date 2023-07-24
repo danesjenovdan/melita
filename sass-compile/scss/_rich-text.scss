@@ -14,6 +14,11 @@
   h1 {
     font-size: 46px;
     margin-bottom: 5rem;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 36px;
+      margin-bottom: 2rem;
+    }
   }
 
   h2 {
@@ -47,6 +52,34 @@
     &:last-child {
       margin-bottom: 0;
     }
+
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+
+    & ol {
+      list-style: lower-alpha;
+
+      & ol {
+        list-style: lower-roman;
+
+        & ol {
+          list-style: decimal;
+
+          & ol {
+            list-style: lower-alpha;
+
+            & ol {
+              list-style: lower-roman;
+            }
+          }
+        }
+      }
+    }
   }
 
   &.rich-text--large {
@@ -54,6 +87,26 @@
     ul,
     ol {
       font-size: 21px;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .richtext-image {
+    display: block;
+    max-width: 100%;
+  }
+
+  a[href] {
+    color: $blue;
+    text-decoration: none;
+    border-bottom: 1px solid $blue;
+
+    &:hover {
+      text-decoration: none;
+      border-bottom-color: transparent;
     }
   }
 }
@@ -77,6 +130,10 @@ hr.thick {
     font-weight: 600;
     padding: 0.6em 1em;
     margin-bottom: $offset;
+
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+    }
   }
 
   &::before {
