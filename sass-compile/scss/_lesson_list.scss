@@ -14,7 +14,6 @@
       max-width: 100%;
       display: flex;
       flex-direction: column;
-      min-height: 41vw;
 
       @include media-breakpoint-up(md) {
         flex: 1 0 50%;
@@ -29,15 +28,7 @@
     padding: 32px 32px 32px 22px;
 
     @include media-breakpoint-up(md) {
-      padding: 0 64px;
-    }
-
-    .position-sticky {
-      top: 0;
-
-      @include media-breakpoint-up(md) {
-        top: 96px;
-      }
+      padding: 96px 64px 0;
     }
 
     .header {
