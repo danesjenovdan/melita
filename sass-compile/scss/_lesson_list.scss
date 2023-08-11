@@ -44,10 +44,10 @@
       display: flex;
       justify-content: center;
       gap: 1.125rem;
-      margin-bottom: 24px;
+      margin-bottom: 12px;
 
       @include media-breakpoint-up(md) {
-        margin-bottom: 64px;
+        margin-bottom: 32px;
       }
 
       img {
@@ -57,6 +57,31 @@
       h1 {
         font-size: 48px;
         color: #112343;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 24px;
+      margin-right: -10px;
+
+      &.disabled {
+        visibility: hidden;
+      }
+
+      button.badge {
+        --bs-badge-font-size: 14px;
+        --bs-badge-color: inherit;
+        background-color: rgba(48, 114, 246, 0.25);
+        border: 2px solid #3072f6;
+        padding: 0.35em 0.75em;
+
+        &:disabled {
+          pointer-events: none;
+          filter: grayscale(1);
+          opacity: 0.5;
+        }
       }
     }
 

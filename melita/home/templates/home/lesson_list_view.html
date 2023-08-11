@@ -18,6 +18,9 @@
           <img src="{% static 'icons/logo.svg' %}" alt="Melita logo" />
           <h1>MeLiTa</h1>
         </div>
+        <div class="buttons" :class="{ disabled: !enabledFilters.length }">
+          <button type="button" class="badge rounded-pill" :disabled="!enabledFilters.length" @click="clearFilters">clear all</button>
+        </div>
         <div class="filters">
           {% for filter in filters %}
           <button class="ratio ratio-1x1 filter" @click="showPopup('{{ filter.key }}')" @click.outside="showPopup('{{ filter.key }}', false)">
@@ -135,6 +138,9 @@
       showPopup(key, show = true) {
         const filter = this.filters.find(f => f.key === key);
         filter.showPopup = show;
+      },
+      clearFilters() {
+        this.filters.forEach(f => f.enabled_options = []);
       },
       get fetchUrlParams() {
         const entries = this.filters
