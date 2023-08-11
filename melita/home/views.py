@@ -145,7 +145,10 @@ class LessonListPartialView(TemplateView):
                     q = {f"{key}__name__in": params}
                     lessons = lessons.filter(**q)
 
-        context["lessons"] = lessons.distinct()
+        sorted_lessons = sorted(
+            lessons.distinct(), key=lambda o: collator.getSortKey(o.title)
+        )
+        context["lessons"] = sorted_lessons
 
         return context
 
