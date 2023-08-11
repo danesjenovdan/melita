@@ -57,3 +57,11 @@ $grid-breakpoints: (
 @import "bootstrap/scss/mixins";
 
 // Change Bootstrap variables or use functions here.
+
+$pagination-border-color: $body-color;
+$pagination-hover-border-color: $body-color;
+$pagination-disabled-border-color: $body-color;
+$pagination-disabled-bg: $gray-200;
+$pagination-active-border-color: $body-color;
+$pagination-active-bg: $yellow;
+$pagination-active-color: $body-color;
