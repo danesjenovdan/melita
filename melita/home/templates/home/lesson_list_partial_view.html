@@ -1,6 +1,9 @@
 {% load static i18n wagtailcore_tags jsonify lesson_list_tags %}
 
 <ol class="lesson-list">
+  {% if not lessons %}
+    {% translate "No results. Please adjust filters." %}
+  {% endif %}
   {% for lesson in lessons %}
   <li>
     <a class="lesson-link" href="{% url "lesson" lesson.id lesson.title|slugify %}">

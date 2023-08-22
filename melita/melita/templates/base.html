@@ -1,4 +1,4 @@
-{% load static i18n wagtailcore_tags wagtailuserbar %}
+{% load static i18n wagtailcore_tags wagtailuserbar translatable_name_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,8 +70,19 @@
                 <div class="container">
                     <div class="row footer-links py-3 justify-content-between">
                         <div class="col-12 col-md-auto footer-col-links">
-                            <a href="/about">{% translate "About" %}</a>
-                            <a href="/how-to-use">{% translate "How to use" %}</a>
+                            {% page_for_lang "about_page" as about_page %}
+                            {% if about_page %}
+                            <a href="{% pageurl about_page %}">{% translate "About" %}</a>
+                            {% else %}
+                            <span>{% translate "About" %}</a>
+                            {% endif %}
+
+                            {% page_for_lang "how_to_page" as how_to_page %}
+                            {% if how_to_page %}
+                            <a href="{% pageurl how_to_page %}">{% translate "How to use" %}</a>
+                            {% else %}
+                            <span>{% translate "How to use" %}</a>
+                            {% endif %}
                         </div>
                         <div class="col-12 col-md-auto footer-col-lang">
                             {% get_current_language as CURRENT_LANGUAGE %}
@@ -95,10 +106,7 @@
                         <div class="col-12 col-lg-6 d-flex flex-column flex-md-row align-items-center">
                             <img src="{% static 'img/EN_Co-fundedbytheEU_RGB_POS.svg' %}" alt="Co-funded by the EU" style="height: 55px;">
                             <div class="small ms-0 ms-md-3">
-                                This website is co-funded by the European Union. Its contents are
-                                the sole responsibility of the International Debate Education
-                                Association and partners and do not necessarily reflect the views of
-                                the European Union.
+                                {% translate "This website is co-funded by the European Union. Its contents are the sole responsibility of the International Debate Education Association do not necessarily reflect the views of the European Union." %}
                             </div>
                         </div>
                     </div>
