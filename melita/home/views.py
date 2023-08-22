@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
 from django.templatetags.static import static
 from django.utils import translation
@@ -145,7 +146,21 @@ class LessonListPartialView(TemplateView):
                     q = {f"{key}__name__in": params}
                     lessons = lessons.filter(**q)
 
-        context["lessons"] = lessons.distinct()
+        sorted_lessons = sorted(
+            lessons.distinct(), key=lambda o: collator.getSortKey(o.title)
+        )
+
+        paginator = Paginator(sorted_lessons, 8)
+        page_number = self.request.GET.get("page")
+        page_lessons = paginator.get_page(page_number)
+
+        paginator.elided_page_range = paginator.get_elided_page_range(
+            number=page_lessons.number,
+            on_each_side=2,
+            on_ends=1,
+        )
+
+        context["lessons"] = page_lessons
 
         return context
 

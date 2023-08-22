@@ -78,8 +78,7 @@ class Material(TranslatableName):
     pass
 
 
-class ActivityType(models.Model):
-    name = models.CharField(max_length=50)
+class ActivityType(TranslatableName):
     color = models.CharField(
         max_length=30,
         help_text="Any valid CSS color format (e.g. #fff, #ffffff, rgb(255, 255, 255), ...)",

@@ -87,12 +87,22 @@
   }
 
   .footer-logos {
-    @include media-breakpoint-down(sm) {
-      gap: 2rem;
+    .partners {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 1rem;
+      margin-bottom: 2rem;
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 0;
+      }
 
       img {
-        display: block;
-        margin-inline: auto;
+        display: inline-block;
+        width: auto;
+        height: 50px;
       }
     }
 

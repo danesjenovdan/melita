@@ -7,124 +7,187 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-15 14:45+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2023-08-22 13:03+0200\n"
+"PO-Revision-Date: 2023-08-22 11:14+0000\n"
+"Last-Translator: Weblate Admin <tech@danesjenovdan.si>\n"
+"Language-Team: Estonian <http://weblate.lb.djnd.si/projects/melita/wagtail/"
+"et/>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
-#: home/templates/home/lesson_list_view.html:56
+#: home/templates/home/lesson_list_partial_view.html:5
+msgid "No results. Please adjust filters."
+msgstr "Tulemused puuduvad. Palun reguleerige filtreid."
+
+#: home/templates/home/lesson_list_view.html:40
+msgid "Search"
+msgstr ""
+
+#: home/templates/home/lesson_list_view.html:74
 msgid "Lessons"
 msgstr "Tunnid"
 
 #: home/templates/home/lesson_view.html:8
+#: home/templates/home/lesson_view.html:9
 msgid "Back to the list"
 msgstr "Tagasi nimekirja juurde"
 
-#: home/templates/home/lesson_view.html:50
+#: home/templates/home/lesson_view.html:51
 msgid "Lesson goals"
 msgstr "Tunni eesmärgid"
 
-#: home/templates/home/lesson_view.html:59
+#: home/templates/home/lesson_view.html:60
 msgid "Activities"
 msgstr "Tegevused"
 
-#: home/templates/home/lesson_view.html:66
+#: home/templates/home/lesson_view.html:70
 msgid "Aim"
 msgstr ""
 
-#: home/templates/home/lesson_view.html:75 home/views.py:76
+#: home/templates/home/lesson_view.html:80 home/views.py:123
 msgid "Keywords"
 msgstr "Võtmesõnad"
 
-#: home/templates/home/lesson_view.html:88
+#: home/templates/home/lesson_view.html:93
 msgid "Pedagogical tips and recommendations"
 msgstr "Nõuanded ja soovitused õpetajale"
 
-#: home/templates/home/lesson_view.html:98
+#: home/templates/home/lesson_view.html:103
 msgid "Download lesson"
 msgstr "Laadi tund/tunnikava alla"
 
-#: home/templates/home/lesson_view.html:103
+#: home/templates/home/lesson_view.html:108
 msgid "Download slides"
 msgstr "Laadi slaidid alla"
 
-#: home/templates/home/lesson_view.html:108
+#: home/templates/home/lesson_view.html:113
 msgid "Download worksheet"
 msgstr "Laadi tööleht alla"
 
-#: home/templates/home/lesson_view.html:115 home/views.py:36
+#: home/templates/home/lesson_view.html:120 home/views.py:53
 msgid "Theme"
 msgstr "Teema"
 
-#: home/templates/home/lesson_view.html:121
+#: home/templates/home/lesson_view.html:126
 msgid "Lesson duration"
 msgstr "Tunni kestus"
 
-#: home/templates/home/lesson_view.html:127 home/views.py:46
+#: home/templates/home/lesson_view.html:132 home/views.py:89
+msgid "Level"
+msgstr ""
+
+#: home/templates/home/lesson_view.html:138
 msgid "Main method of instruction"
 msgstr "Peamine õpimeetod"
 
-#: home/templates/home/lesson_view.html:133 home/views.py:66
+#: home/templates/home/lesson_view.html:144 home/views.py:111
 msgid "Materials"
 msgstr "Materjalid"
 
-#: home/templates/home/lesson_view.html:139 home/views.py:56
+#: home/templates/home/lesson_view.html:150 home/views.py:101
 msgid "Prep time for teacher"
 msgstr "Ettevalmistusaeg (õpetajale)"
 
-#: home/templates/home/lesson_view.html:181
-msgid "Further reading"
-msgstr "Lisalugemist"
-
-#: home/templates/home/lesson_view.html:196
+#: home/templates/home/lesson_view.html:194
 msgid "Sources"
 msgstr "Allikad"
 
-#: home/templates/home/lesson_view.html:211
+#: home/templates/home/lesson_view.html:209
+msgid "Further reading"
+msgstr "Lisalugemist"
+
+#: home/templates/home/lesson_view.html:224
 msgid "Related lessons"
 msgstr "Seotud tunnid"
 
-#: home/wagtail_hooks.py:36 home/wagtail_hooks.py:38
+#: home/templates/modeladmin/copy.html:17
+msgid "Yes, copy"
+msgstr ""
+
+#: home/templates/modeladmin/copy.html:18
+msgid "No, don't copy"
+msgstr ""
+
+#: home/views.py:77
+#, fuzzy
+#| msgid "Lesson duration"
+msgid "Duration"
+msgstr "Tunni kestus"
+
+#: home/wagtail_hooks.py:41 home/wagtail_hooks.py:121
+msgid "Copy"
+msgstr ""
+
+#: home/wagtail_hooks.py:53
+#, python-format
+msgid "Confirm copying of %(object)s"
+msgstr ""
+
+#: home/wagtail_hooks.py:56
+#, python-format
+msgid "Are you sure you want to copy this %(object)s?"
+msgstr ""
+
+#: home/wagtail_hooks.py:64
+#, python-format
+msgid "%(model_name)s '%(object)s' copied."
+msgstr ""
+
+#: home/wagtail_hooks.py:113 home/wagtail_hooks.py:115
 msgid "View live"
 msgstr ""
 
-#: melita/settings/base.py:132
-msgid "English"
+#: home/wagtail_hooks.py:123
+#, python-format
+msgid "Copy this %(object)s"
 msgstr ""
 
 #: melita/settings/base.py:133
-msgid "Dutch"
+msgid "English"
 msgstr ""
 
 #: melita/settings/base.py:134
-msgid "Estonian"
+msgid "Dutch"
 msgstr ""
 
 #: melita/settings/base.py:135
-msgid "Polish"
+msgid "Estonian"
 msgstr ""
 
 #: melita/settings/base.py:136
+msgid "Polish"
+msgstr ""
+
+#: melita/settings/base.py:137
 msgid "Slovenian"
 msgstr ""
 
-#: melita/templates/base.html:49
+#: melita/templates/base.html:49 melita/templates/base.html:63
 msgid "Back to the home page"
 msgstr "Tagasi kodulehele"
 
-#: melita/templates/base.html:62
+#: melita/templates/base.html:75 melita/templates/base.html:77
 msgid "About"
 msgstr "Platvormist"
 
-#: melita/templates/base.html:63
+#: melita/templates/base.html:82 melita/templates/base.html:84
 msgid "How to use"
 msgstr "Kuidas kasutada"
 
-#: melita/templates/base.html:70
+#: melita/templates/base.html:92
 msgid "Language selection"
 msgstr "Keel"
+
+#: melita/templates/base.html:109
+msgid ""
+"This website is co-funded by the European Union. Its contents are the sole "
+"responsibility of the International Debate Education Association do not "
+"necessarily reflect the views of the European Union."
+msgstr ""
+"Seda veebisaiti kaasrahastab Euroopa Liit. Selle sisu eest vastutab "
+"ainuisikuliselt International Debate Education Association ning sisu ei "
+"pruugi kajastada Euroopa Liidu seisukohti."
