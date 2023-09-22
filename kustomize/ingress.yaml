@@ -10,9 +10,20 @@ spec:
   tls:
     - hosts:
         - melita.lb.djnd.si
+        - melitaproject.eu
       secretName: melita-tls
   rules:
     - host: melita.lb.djnd.si
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: melita
+                port:
+                  number: 8000
+    - host: melitaproject.eu
       http:
         paths:
           - path: /
@@ -30,7 +41,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "https://melita.lb.djnd.si"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://melita.lb.djnd.si, https://melitaproject.eu"
 spec:
   ingressClassName: nginx
   tls:
