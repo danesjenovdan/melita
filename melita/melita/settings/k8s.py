@@ -20,8 +20,8 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = ["localhost", "melita.lb.djnd.si"]
-CSRF_TRUSTED_ORIGINS = ["https://melita.lb.djnd.si"]
+ALLOWED_HOSTS = ["localhost", "melita.lb.djnd.si", "melitaproject.eu"]
+CSRF_TRUSTED_ORIGINS = ["https://melita.lb.djnd.si", "https://melitaproject.eu/"]
 
 # DJANGO STORAGE SETTINGS
 if os.getenv("DJANGO_ENABLE_S3", False):
