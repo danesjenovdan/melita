@@ -6,3 +6,6 @@
 /kustomize/secrets.yaml
 
 .DS_Store
+
+# db dumps
+*.dump
