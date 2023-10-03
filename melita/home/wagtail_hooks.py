@@ -157,7 +157,7 @@ class LessonAdmin(ModelAdminCopyMixin, ModelAdmin):
     model = Lesson
     menu_icon = "clipboard-list"
     list_display = ("title", "program_type", "language")
-    list_filter = ("program_type", "language")
+    list_filter = ("program_type", "language", "theme")
     search_fields = ("title", "program_type__name", "language__name")
     button_helper_class = LessonButtonHelper
 
