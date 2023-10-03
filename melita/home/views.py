@@ -142,8 +142,10 @@ class LessonListPartialView(TemplateView):
             if len(params):
                 if key == "prep_time":
                     lessons = lessons.filter(prep_time__in=params)
+                elif key == "keywords":
+                    lessons = lessons.filter(keywords__name__in=params)
                 else:
-                    q = {f"{key}__name__in": params}
+                    q = {f"{key}__{name_attr}__in": params}
                     lessons = lessons.filter(**q)
 
         sorted_lessons = sorted(
