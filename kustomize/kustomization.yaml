@@ -8,4 +8,4 @@ resources:
 images:
   - name: melita
     newName: rg.fr-par.scw.cloud/djnd/melita
-    newTag: '873c1779e12cb81409e67464e0475a2a1ba737b8'
+    newTag: 'a8c010b998619ef2a907aa1a9fcc2ca8696ece53'
