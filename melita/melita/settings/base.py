@@ -34,8 +34,8 @@ INSTALLED_APPS = [
     "home",
     "search",
     "wagtail.contrib.forms",
-    "wagtail.contrib.modeladmin",
     "wagtail.contrib.redirects",
+    "wagtail.contrib.search_promotions",
     "wagtail.contrib.styleguide",
     "wagtail.embeds",
     "wagtail.sites",
@@ -53,9 +53,11 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
+    "django.contrib.postgres",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "wagtail_modeladmin",
 ]
 
 MIDDLEWARE = [
