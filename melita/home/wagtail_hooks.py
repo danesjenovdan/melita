@@ -14,13 +14,13 @@ from taggit.models import Tag
 from wagtail import hooks
 from wagtail.admin import messages
 from wagtail.admin.panels import FieldPanel
-from wagtail.contrib.modeladmin.helpers import ButtonHelper
-from wagtail.contrib.modeladmin.options import (
+from wagtail_modeladmin.helpers import ButtonHelper
+from wagtail_modeladmin.options import (
     ModelAdmin,
     ModelAdminGroup,
     modeladmin_register,
 )
-from wagtail.contrib.modeladmin.views import InstanceSpecificView
+from wagtail_modeladmin.views import InstanceSpecificView
 
 from .models import (
     ActivityType,

@@ -101,6 +101,7 @@ spec:
               cpu: 100m
         - name: melita-nginx
           image: nginx:alpine
+          imagePullPolicy: Always
           volumeMounts:
             - name: melita-persistent-storage
               mountPath: /usr/share/nginx/html
