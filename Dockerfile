@@ -18,7 +18,7 @@ COPY ./sass-compile/scss ./scss
 RUN yarn css
 
 
-FROM python:3.14-slim AS builder
+FROM python:3.15-slim AS builder
 
 RUN useradd wagtail
 
@@ -55,7 +55,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 RUN python3 manage.py compilemessages
 
-FROM python:3.14-slim AS runtime
+FROM python:3.15-slim AS runtime
 
 WORKDIR /app
 
